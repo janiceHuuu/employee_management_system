@@ -1,0 +1,744 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1440</width>
+    <height>593</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QScrollBar" name="horizontalScrollBar">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>520</y>
+      <width>6351</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QScrollBar" name="verticalScrollBar">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>20</width>
+      <height>501</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="previous_page">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>0</y>
+      <width>113</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>上一頁</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>30</y>
+      <width>6337</width>
+      <height>75</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="26">
+      <widget class="QLabel" name="label_21">
+       <property name="text">
+        <string>訓練時數C</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="21">
+      <widget class="QLabel" name="label_18">
+       <property name="text">
+        <string>工作地點</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="50">
+      <widget class="QLabel" name="SeniorityB">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="41">
+      <widget class="QLabel" name="label_33">
+       <property name="text">
+        <string>年度績效等級A</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="44">
+      <widget class="QLabel" name="AgeLevel">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="41">
+      <widget class="QLabel" name="AnnualPerformanceGradeA">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="52">
+      <widget class="QLabel" name="label_22">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="55">
+      <widget class="QLabel" name="Department">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="54">
+      <widget class="QLabel" name="School">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="53">
+      <widget class="QLabel" name="Education">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="20">
+      <widget class="QLabel" name="label_17">
+       <property name="text">
+        <string>特殊專案佔比</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="9">
+      <widget class="QLabel" name="label_9">
+       <property name="text">
+        <string>工作資歷1</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="42">
+      <widget class="QLabel" name="label_34">
+       <property name="text">
+        <string>年度績效等級B</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="51">
+      <widget class="QLabel" name="label_67">
+       <property name="text">
+        <string>年資層級C</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="14">
+      <widget class="QLabel" name="label_24">
+       <property name="text">
+        <string>是否升遷</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="5">
+      <widget class="QLabel" name="label_6">
+       <property name="text">
+        <string>職等</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="7">
+      <widget class="QLabel" name="label_8">
+       <property name="text">
+        <string>管理層級</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="55">
+      <widget class="QLabel" name="label_72">
+       <property name="text">
+        <string>畢業科系類別</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="15">
+      <widget class="QLabel" name="label_25">
+       <property name="text">
+        <string>升遷速度</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="43">
+      <widget class="QLabel" name="label_35">
+       <property name="text">
+        <string>年度績效等級C</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="53">
+      <widget class="QLabel" name="label_70">
+       <property name="text">
+        <string>最高學歷</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="54">
+      <widget class="QLabel" name="label_71">
+       <property name="text">
+        <string>畢業學校類別</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="6">
+      <widget class="QLabel" name="label_7">
+       <property name="text">
+        <string>廠區代碼</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="52">
+      <widget class="QLabel" name="label_69">
+       <property name="text">
+        <string>任職前工作平均年數</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="10">
+      <widget class="QLabel" name="label_10">
+       <property name="text">
+        <string>工作資歷2</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="11">
+      <widget class="QLabel" name="label_11">
+       <property name="text">
+        <string>工作資歷3</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="13">
+      <widget class="QLabel" name="label_13">
+       <property name="text">
+        <string>工作資歷5</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="31">
+      <widget class="QLabel" name="label_26">
+       <property name="text">
+        <string>近3月請假數A</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="12">
+      <widget class="QLabel" name="label_12">
+       <property name="text">
+        <string>工作資歷4</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="3">
+      <widget class="QLabel" name="label_4">
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="text">
+        <string>sex</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="44">
+      <widget class="QLabel" name="Label_n">
+       <property name="text">
+        <string>年齡層級</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="8">
+      <widget class="QLabel" name="label_73">
+       <property name="text">
+        <string>歸屬部門</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="4">
+      <widget class="QLabel" name="label_5">
+       <property name="text">
+        <string>工作分類</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="45">
+      <widget class="QLabel" name="label_37">
+       <property name="text">
+        <string>婚姻狀況</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="19">
+      <widget class="QLabel" name="label_16">
+       <property name="text">
+        <string>當前專案角色</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="30">
+      <widget class="QLabel" name="label_39">
+       <property name="text">
+        <string>通勤成本</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="29">
+      <widget class="QLabel" name="label_23">
+       <property name="text">
+        <string>榮譽數</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="38">
+      <widget class="QLabel" name="label_32">
+       <property name="text">
+        <string>出差數B</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="32">
+      <widget class="QLabel" name="label_28">
+       <property name="text">
+        <string>近3月請假數B</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="35">
+      <widget class="QLabel" name="label_29">
+       <property name="text">
+        <string>近1年請假數B</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="16">
+      <widget class="QLabel" name="label_14">
+       <property name="text">
+        <string>專案時數</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="43">
+      <widget class="QLabel" name="AnnualPerformanceGradeC">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="45">
+      <widget class="QLabel" name="MaritalStatus">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="51">
+      <widget class="QLabel" name="SeniorityC">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="42">
+      <widget class="QLabel" name="AnnualPerformanceGradeB">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="50">
+      <widget class="QLabel" name="label_68">
+       <property name="text">
+        <string>年資層級B</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="38">
+      <widget class="QLabel" name="BusinessTripB">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="35">
+      <widget class="QLabel" name="LeaveYearB">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="32">
+      <widget class="QLabel" name="Leave3B">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="31">
+      <widget class="QLabel" name="Leave3A">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="30">
+      <widget class="QLabel" name="CommutingCosts">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="29">
+      <widget class="QLabel" name="NumberOfHonors">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="26">
+      <widget class="QLabel" name="label_43">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="3">
+      <widget class="QLabel" name="label_40">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="4">
+      <widget class="QLabel" name="label_41">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="5">
+      <widget class="QLabel" name="label_42">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="6">
+      <widget class="QLabel" name="label_44">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="7">
+      <widget class="QLabel" name="ManageLevel">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="8">
+      <widget class="QLabel" name="label_45">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="9">
+      <widget class="QLabel" name="WorkQualifications1">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="10">
+      <widget class="QLabel" name="WorkQualifications2">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="11">
+      <widget class="QLabel" name="WorkQualifications3">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="12">
+      <widget class="QLabel" name="WorkQualifications4">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="13">
+      <widget class="QLabel" name="WorkQualifications5">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="14">
+      <widget class="QLabel" name="label_46">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="15">
+      <widget class="QLabel" name="PromotedSpeed">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="16">
+      <widget class="QLabel" name="ProjectHours">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="19">
+      <widget class="QLabel" name="CurrentProjectRole">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="20">
+      <widget class="QLabel" name="ProportionOfSpecialProject">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="21">
+      <widget class="QLabel" name="WorkPlace">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="17">
+      <widget class="QLabel" name="label_15">
+       <property name="text">
+        <string>專案總數</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="17">
+      <widget class="QLabel" name="ProjectTotal">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="22">
+      <widget class="QLabel" name="label_19">
+       <property name="text">
+        <string>訓練時數A</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="22">
+      <widget class="QLabel" name="TrainingHoursA">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="24">
+      <widget class="QLabel" name="label_20">
+       <property name="text">
+        <string>訓練時數B</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="24">
+      <widget class="QLabel" name="TrainingHoursB">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="27">
+      <widget class="QLabel" name="labeln">
+       <property name="text">
+        <string>生產總額</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="27">
+      <widget class="QLabel" name="TotalProduction">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="33">
+      <widget class="QLabel" name="label_27">
+       <property name="text">
+        <string>近1年請假數A</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="33">
+      <widget class="QLabel" name="LeaveYearA">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="36">
+      <widget class="QLabel" name="label_30">
+       <property name="text">
+        <string>出差數A</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="36">
+      <widget class="QLabel" name="BusinessTripA">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="39">
+      <widget class="QLabel" name="label_31">
+       <property name="text">
+        <string>出差集中度</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="39">
+      <widget class="QLabel" name="BusinessTripConcentration">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="46">
+      <widget class="QLabel" name="label_38">
+       <property name="text">
+        <string>眷屬量</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="46">
+      <widget class="QLabel" name="Dependents">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="48">
+      <widget class="QLabel" name="label_66">
+       <property name="text">
+        <string>年資層級A</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="48">
+      <widget class="QLabel" name="SeniorityA">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>PerNo</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>year</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>PerStatus</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="2">
+      <widget class="QLabel" name="PerNo">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLabel" name="Year">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="Answer">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1440</width>
+     <height>24</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

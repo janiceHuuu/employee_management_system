@@ -1,0 +1,576 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1005</width>
+    <height>744</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="previous_page">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>40</y>
+      <width>113</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>上一頁</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>80</y>
+      <width>601</width>
+      <height>488</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="1" column="0">
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>PerNo：</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>PerStatus：</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="5">
+      <widget class="QLineEdit" name="BusinessTripA"/>
+     </item>
+     <item row="0" column="3">
+      <widget class="QLineEdit" name="ProjectHours"/>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLineEdit" name="PerStatus"/>
+     </item>
+     <item row="0" column="2">
+      <widget class="QLabel" name="label_14">
+       <property name="text">
+        <string>專案時數：</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="3">
+      <widget class="QLineEdit" name="ProjectTotal"/>
+     </item>
+     <item row="0" column="4">
+      <widget class="QLabel" name="label_30">
+       <property name="text">
+        <string>出差數A：</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="2">
+      <widget class="QLabel" name="label_15">
+       <property name="text">
+        <string>專案總數：</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="PerNo"/>
+     </item>
+     <item row="1" column="4">
+      <widget class="QLabel" name="label_32">
+       <property name="text">
+        <string>出差數B：</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="Year"/>
+     </item>
+     <item row="1" column="5">
+      <widget class="QLineEdit" name="BusinessTripB"/>
+     </item>
+     <item row="0" column="0">
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>year：</string>
+       </property>
+      </widget>
+     </item>
+     <item row="10" column="5">
+      <widget class="QLineEdit" name="SeniorityB"/>
+     </item>
+     <item row="10" column="4">
+      <widget class="QLabel" name="label_68">
+       <property name="text">
+        <string>年資層級B：</string>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="2">
+      <widget class="QLabel" name="label_23">
+       <property name="text">
+        <string>榮譽數：</string>
+       </property>
+      </widget>
+     </item>
+     <item row="10" column="1">
+      <widget class="QLineEdit" name="WorkQualifications2"/>
+     </item>
+     <item row="10" column="0">
+      <widget class="QLabel" name="label_10">
+       <property name="text">
+        <string>工作資歷2：</string>
+       </property>
+      </widget>
+     </item>
+     <item row="10" column="2">
+      <widget class="QLabel" name="label_39">
+       <property name="text">
+        <string>通勤成本：</string>
+       </property>
+      </widget>
+     </item>
+     <item row="10" column="3">
+      <widget class="QLineEdit" name="CommutingCosts"/>
+     </item>
+     <item row="9" column="3">
+      <widget class="QLineEdit" name="NumberOfHonors"/>
+     </item>
+     <item row="9" column="5">
+      <widget class="QLineEdit" name="SeniorityA"/>
+     </item>
+     <item row="9" column="4">
+      <widget class="QLabel" name="label_66">
+       <property name="text">
+        <string>年資層級A：</string>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="1">
+      <widget class="QLineEdit" name="WorkQualifications1"/>
+     </item>
+     <item row="11" column="2">
+      <widget class="QLabel" name="label_26">
+       <property name="text">
+        <string>近3月請假數A：</string>
+       </property>
+      </widget>
+     </item>
+     <item row="11" column="1">
+      <widget class="QLineEdit" name="WorkQualifications3"/>
+     </item>
+     <item row="11" column="0">
+      <widget class="QLabel" name="label_11">
+       <property name="text">
+        <string>工作資歷3：</string>
+       </property>
+      </widget>
+     </item>
+     <item row="15" column="5">
+      <widget class="QLineEdit" name="Department"/>
+     </item>
+     <item row="15" column="4">
+      <widget class="QLabel" name="label_72">
+       <property name="text">
+        <string>畢業科系類別：</string>
+       </property>
+      </widget>
+     </item>
+     <item row="15" column="1">
+      <widget class="QLineEdit" name="PromotedSpeed"/>
+     </item>
+     <item row="13" column="4">
+      <widget class="QLabel" name="label_70">
+       <property name="text">
+        <string>最高學歷：</string>
+       </property>
+      </widget>
+     </item>
+     <item row="13" column="5">
+      <widget class="QLineEdit" name="Education"/>
+     </item>
+     <item row="15" column="0">
+      <widget class="QLabel" name="label_25">
+       <property name="text">
+        <string>升遷速度：</string>
+       </property>
+      </widget>
+     </item>
+     <item row="14" column="1">
+      <widget class="QLineEdit" name="WhetherPromoted"/>
+     </item>
+     <item row="14" column="3">
+      <widget class="QLineEdit" name="LeaveYearB"/>
+     </item>
+     <item row="13" column="3">
+      <widget class="QLineEdit" name="LeaveYearA"/>
+     </item>
+     <item row="13" column="0">
+      <widget class="QLabel" name="label_13">
+       <property name="text">
+        <string>工作資歷5：</string>
+       </property>
+      </widget>
+     </item>
+     <item row="12" column="3">
+      <widget class="QLineEdit" name="Leave3B"/>
+     </item>
+     <item row="14" column="5">
+      <widget class="QLineEdit" name="School"/>
+     </item>
+     <item row="12" column="1">
+      <widget class="QLineEdit" name="WorkQualifications4"/>
+     </item>
+     <item row="14" column="2">
+      <widget class="QLabel" name="label_29">
+       <property name="text">
+        <string>近1年請假數B：</string>
+       </property>
+      </widget>
+     </item>
+     <item row="11" column="4">
+      <widget class="QLabel" name="label_67">
+       <property name="text">
+        <string>年資層級C：</string>
+       </property>
+      </widget>
+     </item>
+     <item row="12" column="4">
+      <widget class="QLabel" name="label_69">
+       <property name="text">
+        <string>任職前工作平均年數：</string>
+       </property>
+      </widget>
+     </item>
+     <item row="12" column="0">
+      <widget class="QLabel" name="label_12">
+       <property name="text">
+        <string>工作資歷4：</string>
+       </property>
+      </widget>
+     </item>
+     <item row="13" column="1">
+      <widget class="QLineEdit" name="WorkQualifications5"/>
+     </item>
+     <item row="14" column="4">
+      <widget class="QLabel" name="label_71">
+       <property name="text">
+        <string>畢業學校類別：</string>
+       </property>
+      </widget>
+     </item>
+     <item row="11" column="5">
+      <widget class="QLineEdit" name="SeniorityC"/>
+     </item>
+     <item row="12" column="5">
+      <widget class="QLineEdit" name="AverageYear"/>
+     </item>
+     <item row="11" column="3">
+      <widget class="QLineEdit" name="Leave3A"/>
+     </item>
+     <item row="14" column="0">
+      <widget class="QLabel" name="label_24">
+       <property name="text">
+        <string>是否升遷：</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="3">
+      <widget class="QLineEdit" name="ProportionOfSpecialProject"/>
+     </item>
+     <item row="3" column="2">
+      <widget class="QLabel" name="label_17">
+       <property name="text">
+        <string>特殊專案佔比：</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QLineEdit" name="Sex"/>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="label_4">
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="text">
+        <string>sex：</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="4">
+      <widget class="QLabel" name="label_31">
+       <property name="text">
+        <string>出差集中度：</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="3">
+      <widget class="QLineEdit" name="CurrentProjectRole"/>
+     </item>
+     <item row="2" column="2">
+      <widget class="QLabel" name="label_16">
+       <property name="text">
+        <string>當前專案角色：</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="5">
+      <widget class="QLineEdit" name="BusinessTripConcentration"/>
+     </item>
+     <item row="5" column="5">
+      <widget class="QLineEdit" name="AnnualPerformanceGradeC"/>
+     </item>
+     <item row="4" column="2">
+      <widget class="QLabel" name="label_18">
+       <property name="text">
+        <string>工作地點：</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="4">
+      <widget class="QLabel" name="label_33">
+       <property name="text">
+        <string>年度績效等級A：</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="3">
+      <widget class="QLineEdit" name="TrainingHoursA"/>
+     </item>
+     <item row="5" column="1">
+      <widget class="QLineEdit" name="Grade"/>
+     </item>
+     <item row="4" column="4">
+      <widget class="QLabel" name="label_34">
+       <property name="text">
+        <string>年度績效等級B：</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QLineEdit" name="Job_classification"/>
+     </item>
+     <item row="4" column="5">
+      <widget class="QLineEdit" name="AnnualPerformanceGradeB"/>
+     </item>
+     <item row="5" column="4">
+      <widget class="QLabel" name="label_35">
+       <property name="text">
+        <string>年度績效等級C：</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="0">
+      <widget class="QLabel" name="label_6">
+       <property name="text">
+        <string>職等：</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="2">
+      <widget class="QLabel" name="label_19">
+       <property name="text">
+        <string>訓練時數A：</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="label_5">
+       <property name="text">
+        <string>工作分類：</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="5">
+      <widget class="QLineEdit" name="AnnualPerformanceGradeA"/>
+     </item>
+     <item row="4" column="3">
+      <widget class="QLineEdit" name="WorkPlace"/>
+     </item>
+     <item row="6" column="2">
+      <widget class="QLabel" name="label_20">
+       <property name="text">
+        <string>訓練時數B：</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="3">
+      <widget class="QLineEdit" name="TrainingHoursB"/>
+     </item>
+     <item row="6" column="1">
+      <widget class="QLineEdit" name="FactoryCode"/>
+     </item>
+     <item row="6" column="4">
+      <widget class="QLabel" name="Label_n">
+       <property name="text">
+        <string>年齡層級：</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="0">
+      <widget class="QLabel" name="label_7">
+       <property name="text">
+        <string>廠區代碼：</string>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="0">
+      <widget class="QLabel" name="label_9">
+       <property name="text">
+        <string>工作資歷1：</string>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="4">
+      <widget class="QLabel" name="label_38">
+       <property name="text">
+        <string>眷屬量：</string>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="3">
+      <widget class="QLineEdit" name="TotalProduction"/>
+     </item>
+     <item row="8" column="2">
+      <widget class="QLabel" name="labeln">
+       <property name="text">
+        <string>生產總額：</string>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="5">
+      <widget class="QLineEdit" name="Dependents"/>
+     </item>
+     <item row="8" column="0">
+      <widget class="QLabel" name="label_73">
+       <property name="text">
+        <string>歸屬部門：</string>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="1">
+      <widget class="QLineEdit" name="BelongingDepartment"/>
+     </item>
+     <item row="7" column="3">
+      <widget class="QLineEdit" name="TrainingHoursC"/>
+     </item>
+     <item row="7" column="5">
+      <widget class="QLineEdit" name="MaritalStatus"/>
+     </item>
+     <item row="7" column="4">
+      <widget class="QLabel" name="label_37">
+       <property name="text">
+        <string>婚姻狀況：</string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="0">
+      <widget class="QLabel" name="label_8">
+       <property name="text">
+        <string>管理層級：</string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="2">
+      <widget class="QLabel" name="label_21">
+       <property name="text">
+        <string>訓練時數C：</string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="1">
+      <widget class="QLineEdit" name="ManageLevel"/>
+     </item>
+     <item row="6" column="5">
+      <widget class="QLineEdit" name="AgeLevel"/>
+     </item>
+     <item row="12" column="2">
+      <widget class="QLabel" name="label_28">
+       <property name="text">
+        <string>近3月請假數B：</string>
+       </property>
+      </widget>
+     </item>
+     <item row="13" column="2">
+      <widget class="QLabel" name="label_27">
+       <property name="text">
+        <string>近1年請假數A：</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="layoutWidget_2">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>580</y>
+      <width>364</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_2">
+     <item row="0" column="0">
+      <widget class="QPushButton" name="delet_employee_information">
+       <property name="text">
+        <string>刪除員工資料</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QPushButton" name="update_employee_information">
+       <property name="text">
+        <string>更新員工資料</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="QPushButton" name="add_employee_information">
+       <property name="text">
+        <string>新增員工資料</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QLabel" name="success">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>590</y>
+      <width>321</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1005</width>
+     <height>24</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
