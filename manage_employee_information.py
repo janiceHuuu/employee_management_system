@@ -1,5 +1,5 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox
+from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox, QLineEdit
 from manage_employee_information_ui import Ui_MainWindow as Ui_ManageEmployeeInformationWindow
 import sqlite3
 
@@ -64,7 +64,12 @@ class ManageEmployeeInformationWindow(QMainWindow, Ui_ManageEmployeeInformationW
             "Department": self.Department.text()
         }
         return data
-
+    
+    def clear_text_fields(self):
+            # 循环清除所有文本框的文本
+            for widget in self.findChildren(QLineEdit):
+                widget.clear()
+    
     def add_employee(self):
         data = self.get_employee_data()
         
@@ -103,6 +108,8 @@ class ManageEmployeeInformationWindow(QMainWindow, Ui_ManageEmployeeInformationW
             )''', data)
             conn.commit()
             self.success.setText("已新增成功")
+            self.clear_text_fields()
+            
         except sqlite3.IntegrityError:
             self.success.setText("因有欄目未被填寫或員工在職狀態、編號異常\n，故加入資料庫失敗，請重新填寫")
         finally:
