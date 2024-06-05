@@ -66,7 +66,7 @@ class ManageEmployeeInformationWindow(QMainWindow, Ui_ManageEmployeeInformationW
         return data
     
     def clear_text_fields(self):
-            # 循环清除所有文本框的文本
+            # 循環清除所有文本框的文本
             for widget in self.findChildren(QLineEdit):
                 widget.clear()
     

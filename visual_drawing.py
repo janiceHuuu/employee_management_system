@@ -32,12 +32,11 @@ class VisualDrawingWindow(QMainWindow, Ui_VisualDrawingWindow):
         if len(selected_checkboxes) != 1:
             QMessageBox.warning(self, "Error", "請選擇且只能選擇一個選項")
             return
-
-        selected_field = selected_checkboxes[0].text()
-        
-        # Replace this part with actual drawing logic using selected_field
-        
-        self.drawing_answer_page = DrawingAnswerWindow()  # 修正这行的创建实例语句
+    
+        selected_field = selected_checkboxes[0].objectName()  # Get the objectName of the selected checkbox
+        print("Selected Field in create_drawing:", selected_field)  # Check the value of selected_field
+        # Pass the selected_field to DrawingAnswerWindow
+        self.drawing_answer_page = DrawingAnswerWindow(selected_field)  # Pass selected_field argument
         self.drawing_answer_page.show()
         self.close()
 
