@@ -1,6 +1,6 @@
 # 員工管理系統
-## 所有.ui 檔案都放在檔名：ui 的資料夾
-## 所有.py 檔案和資料庫都放在檔名：code+data 的資料夾
+## 所有.ui 檔案都放在檔名為ui 的資料夾
+## 所有.py 檔案和資料庫都放在檔名為code+data 的資料夾
 ## 檔名.py 是讓ui動起來的程式碼 ； 檔名_ui.py 是ui的程式碼
 ## main.py 是有路徑的程式碼 ； login.py 是使用者輸入帳密所用的程式碼 ； nextpage.py 是登入後，選擇三種功能的程式碼
 ## manage_employee_information.py 是管理員工資料的程式碼
