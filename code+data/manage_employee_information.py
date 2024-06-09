@@ -1,9 +1,12 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox, QLineEdit
+#from PyQt5.QtCore import pyqtSignal
 from manage_employee_information_ui import Ui_MainWindow as Ui_ManageEmployeeInformationWindow
 import sqlite3
 
 class ManageEmployeeInformationWindow(QMainWindow, Ui_ManageEmployeeInformationWindow):
+    #previous_page_success = pyqtSignal()  # 定義一個信號
+    
     def __init__(self):
         super().__init__()
         self.setupUi(self)
@@ -180,6 +183,7 @@ class ManageEmployeeInformationWindow(QMainWindow, Ui_ManageEmployeeInformationW
 
 
     def go_to_previous_page(self):
+        #self.previous_page_success.emit()
         from nextpage import NextPageWindow
         self.next_page = NextPageWindow()
         self.next_page.show()
