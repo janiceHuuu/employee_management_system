@@ -14,7 +14,7 @@ class LoginWindow(QMainWindow, Ui_LoginWindow):
         if self.usernameLineEdit.text() == "user" and self.passwordLineEdit.text() == "pass":
             self.messageLabel.setText("Sign in successful!")
             self.open_next_page()
-            self.accepted.emit()  # Emit a custom signal indicating successful login
+            #self.accepted.emit()  # Emit a custom signal indicating successful login
         else:
             self.messageLabel.setText("Incorrect username or password.\nPlease try again.")
             
