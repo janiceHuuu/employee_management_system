@@ -1,5 +1,5 @@
 # 員工管理系統
-#要跑程式的話，可以從main.py開始跑，或跳過login.py並從nextpage.py開始跑
+# 要跑程式的話，可以從main.py開始跑，或跳過login.py並從nextpage.py開始跑
 ## 所有.ui 檔案都放在檔名為ui 的資料夾
 ## 所有.py 檔案和資料庫都放在檔名為code+data 的資料夾
 ## 檔名.py 是讓ui動起來的程式碼 ； 檔名_ui.py 是ui的程式碼
