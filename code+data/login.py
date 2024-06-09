@@ -1,4 +1,3 @@
-# login.py
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow
 from login_ui import Ui_MainWindow as Ui_LoginWindow

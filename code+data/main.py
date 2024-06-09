@@ -20,8 +20,8 @@ if __name__ == "__main__":
     manage_employee_window = ManageEmployeeInformationWindow()
     employee_turnover_forecast_window = EmployeeTurnoverForecastWindow()
     visual_drawing_window = VisualDrawingWindow()
-    forecast_answer_window = ForecastAnswerWindow()
-    drawing_answer_window = DrawingAnswerWindow()
+    forecast_answer_window = ForecastAnswerWindow([])
+    drawing_answer_window = DrawingAnswerWindow([])
 
     # 登錄窗口中的信號連接到主界面和其他界面的切換功能
     login_window.login_success.connect(next_page_window.show)
