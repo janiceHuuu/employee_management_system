@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'forecast_answer_ui.ui'
+# Form implementation generated from reading ui file 'search_answer_ui.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.10
 #
@@ -360,10 +360,10 @@ class Ui_MainWindow(object):
         self.Year.setText("")
         self.Year.setObjectName("Year")
         self.gridLayout.addWidget(self.Year, 1, 1, 1, 1)
-        self.Answer = QtWidgets.QLabel(self.layoutWidget)
-        self.Answer.setText("")
-        self.Answer.setObjectName("Answer")
-        self.gridLayout.addWidget(self.Answer, 1, 0, 1, 1)
+        self.PerStatus = QtWidgets.QLabel(self.layoutWidget)
+        self.PerStatus.setText("")
+        self.PerStatus.setObjectName("PerStatus")
+        self.gridLayout.addWidget(self.PerStatus, 1, 0, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 798, 24))

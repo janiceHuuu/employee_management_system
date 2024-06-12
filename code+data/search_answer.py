@@ -39,8 +39,8 @@ class SearchAnswerWindow(QMainWindow, Ui_SearchAnswerWindow):
         for row, result in enumerate(self.results, start=1):
             per_status = result[3]  # PerStatus 位於資料中的第四個位置
             # 檢查 PerStatus 是否為 0，如果是則跳過
-            if per_status == 0:
-                continue
+            #if per_status == 0:
+                #continue
             for col, value in enumerate(result):
                 # 如果不是 PerStatus 所在列，則添加該值
                 if col != 3:
@@ -57,9 +57,9 @@ class SearchAnswerWindow(QMainWindow, Ui_SearchAnswerWindow):
         main_layout.addWidget(scroll_area)
 
     def go_to_previous_page(self):
-        from employee_turnover_forecast import EmployeeTurnoverForecastWindow
-        self.employee_turnover_forecast_page = EmployeeTurnoverForecastWindow()
-        self.employee_turnover_forecast_page.show()
+        from search_employee_information import SearchEmployeeInformationWindow
+        self.search_employee_information_page = SearchEmployeeInformationWindow()
+        self.search_employee_information_page.show()
         self.close()
 
 if __name__ == "__main__":
