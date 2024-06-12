@@ -7,6 +7,6 @@
 - 檔名 **.py** 是讓ui動起來的程式碼 ； 檔名 **_ui.py** 是ui的程式碼
 - **main.py** 是有路徑的程式碼 ； **login.py** 是使用者輸入帳密所用的程式碼 ； **nextpage.py** 是登入後，選擇三種功能的程式碼
 - **manage_employee_information.py** 是管理員工資料的程式碼
-- **employee_management.py** 是做資料庫的程式碼 ； **employee_management.db** 是資料庫的檔案
+- **database_init.py** 是做資料庫的程式碼 ； **employee_management.db** 是資料庫的檔案
 - **employee_turnover_forecast.py** 是員工離職預測的程式碼 ； **forecast_answer.py** 是在員工離職預測的介面中，按下「搜尋」會出現的程式碼
 - **visual_drawing,py** 是視覺化繪圖的程式碼 ； **drawing_answer.py** 是在視覺畫繪圖介面中，按下「繪圖」會出現的程式碼
