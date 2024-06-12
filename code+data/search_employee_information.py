@@ -16,7 +16,6 @@ class SearchEmployeeInformationWindow(QMainWindow, Ui_SearchEmployeeInformationW
         
         if not search_criteria:
             self.message.setText("請至少輸入一項搜索條件")  # 在 QLabel 中顯示錯誤訊息
-            self.messageLabel.setText("Incorrect username or password.\nPlease try again.")
             return
         
         query = "SELECT * FROM employees WHERE " + " AND ".join([f"{key} = ?" for key in search_criteria.keys()])
@@ -37,7 +36,7 @@ class SearchEmployeeInformationWindow(QMainWindow, Ui_SearchEmployeeInformationW
 
     def get_employee_data(self):
         data = {
-            "PerStatus": self.PerStatus.text(),
+            "Year": self.Year.text(),
             "PerNo": self.PerNo.text(),
             "Sex": self.Sex.text(),
             "Job_classification": self.Job_classification.text(),
