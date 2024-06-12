@@ -1,9 +1,9 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox
-from employee_turnover_forecast_ui import Ui_MainWindow as Ui_EmployeeTurnoverForecastWindow
+from search_employee_information_ui import Ui_MainWindow as Ui_SearchEmployeeInformationWindow
 import sqlite3
 
-class EmployeeTurnoverForecastWindow(QMainWindow, Ui_EmployeeTurnoverForecastWindow):
+class SearchEmployeeInformationWindow(QMainWindow, Ui_SearchEmployeeInformationWindow):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
@@ -30,14 +30,14 @@ class EmployeeTurnoverForecastWindow(QMainWindow, Ui_EmployeeTurnoverForecastWin
             QMessageBox.warning(self, "No Results", "沒有找到匹配的結果")
         else:
             self.hide()  # 隱藏當前窗口
-            from forecast_answer import ForecastAnswerWindow
-            self.forecast_answer_page = ForecastAnswerWindow(results)
-            self.forecast_answer_page.show()
+            from search_answer import SearchAnswerWindow
+            self.search_answer_page = SearchAnswerWindow(results)
+            self.search_answer_page.show()
 
 
     def get_employee_data(self):
         data = {
-            "Year": self.Year.text(),
+            "PerStatus": self.PerStatus.text(),
             "PerNo": self.PerNo.text(),
             "Sex": self.Sex.text(),
             "Job_classification": self.Job_classification.text(),
@@ -94,6 +94,6 @@ class EmployeeTurnoverForecastWindow(QMainWindow, Ui_EmployeeTurnoverForecastWin
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    window = EmployeeTurnoverForecastWindow()
+    window = SearchEmployeeInformationWindow()
     window.show()
     sys.exit(app.exec_())

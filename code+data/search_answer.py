@@ -1,10 +1,10 @@
 import sys
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel, QScrollArea, QWidget, QVBoxLayout, QHBoxLayout, QGridLayout, QPushButton
-from forecast_answer_ui import Ui_MainWindow as Ui_ForecastAnswerWindow
+from search_answer_ui import Ui_MainWindow as Ui_SearchAnswerWindow
 import sqlite3
 
-class ForecastAnswerWindow(QMainWindow, Ui_ForecastAnswerWindow):
+class SearchAnswerWindow(QMainWindow, Ui_SearchAnswerWindow):
     def __init__(self, results):
         super().__init__()
         self.setupUi(self)
@@ -64,6 +64,6 @@ class ForecastAnswerWindow(QMainWindow, Ui_ForecastAnswerWindow):
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    window = ForecastAnswerWindow([])
+    window = SearchAnswerWindow([])
     window.show()
     sys.exit(app.exec_())
