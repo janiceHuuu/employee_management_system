@@ -11,6 +11,7 @@ class SearchAnswerWindow(QMainWindow, Ui_SearchAnswerWindow):
         self.results = results
         self.display_results()
         self.previous_page.clicked.connect(self.go_to_previous_page)
+    
 
     def display_results(self):
         central_widget = QWidget()
@@ -30,23 +31,23 @@ class SearchAnswerWindow(QMainWindow, Ui_SearchAnswerWindow):
         scroll_layout = QGridLayout(scroll_widget)
     
         # 將 UI 中的 QLabel 值添加到第一列
-        for col in range(1, 48):
+        for col in range(1, 47):
             label_name = f'label_{col}'
             label_value = getattr(self, label_name).text()
             header_label = QLabel(label_value)
             scroll_layout.addWidget(header_label, 0, col - 1)
     
         for row, result in enumerate(self.results, start=1):
-            per_status = result[0]  # PerStatus 位於資料中的第四個位置
+            per_status = result[2]  # PerStatus 位於資料中的第四個位置
             # 檢查 PerStatus 是否為 0，如果是則跳過
             #if per_status == 0:
                 #continue
             for col, value in enumerate(result):
                 # 如果不是 PerStatus 所在列，則添加該值
-                if col != 0:
+                if col != 2:
                     data_label = QLabel(str(value))
                     # 修正欄位位置的計算，跳過 PerStatus 的索引
-                    if col < 0:
+                    if col < 2:
                         scroll_layout.addWidget(data_label, row, col)
                     else:
                         scroll_layout.addWidget(data_label, row, col - 1)

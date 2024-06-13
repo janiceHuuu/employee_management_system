@@ -1,11 +1,10 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox, QLineEdit
-#from PyQt5.QtCore import pyqtSignal
 from manage_employee_information_ui import Ui_MainWindow as Ui_ManageEmployeeInformationWindow
 import sqlite3
 
 class ManageEmployeeInformationWindow(QMainWindow, Ui_ManageEmployeeInformationWindow):
-    #previous_page_success = pyqtSignal()  # 定義一個信號
+
     
     def __init__(self):
         super().__init__()
@@ -17,54 +16,53 @@ class ManageEmployeeInformationWindow(QMainWindow, Ui_ManageEmployeeInformationW
 
     def get_employee_data(self):
         data = {
-            'Answer': 3,
-            "Year": self.Year.text(),
+            "yyyy": self.Year.text(),
             "PerNo": self.PerNo.text(),
-            "PerStatus": self.PerStatus.text(),
-            "Sex": self.Sex.text(),
-            "Job_classification": self.Job_classification.text(),
-            "Grade": self.Grade.text(),
-            "FactoryCode": self.FactoryCode.text(),
-            "ManageLevel": self.ManageLevel.text(),
-            "BelongingDepartment": self.BelongingDepartment.text(),
-            "WorkQualifications1": self.WorkQualifications1.text(),
-            "WorkQualifications2": self.WorkQualifications2.text(),
-            "WorkQualifications3": self.WorkQualifications3.text(),
-            "WorkQualifications4": self.WorkQualifications4.text(),
-            "WorkQualifications5": self.WorkQualifications5.text(),
-            "WhetherPromoted": self.WhetherPromoted.text(),
-            "PromotedSpeed": self.PromotedSpeed.text(),
-            "ProjectHours": self.ProjectHours.text(),
-            "ProjectTotal": self.ProjectTotal.text(),
-            "CurrentProjectRole": self.CurrentProjectRole.text(),
-            "ProportionOfSpecialProject": self.ProportionOfSpecialProject.text(),
-            "WorkPlace": self.WorkPlace.text(),
-            "TrainingHoursA": self.TrainingHoursA.text(),
-            "TrainingHoursB": self.TrainingHoursB.text(),
-            "TrainingHoursC": self.TrainingHoursC.text(),
-            "TotalProduction": self.TotalProduction.text(),
-            "NumberOfHonors": self.NumberOfHonors.text(),
-            "CommutingCosts": self.CommutingCosts.text(),
-            "Leave3A": self.Leave3A.text(),
-            "Leave3B": self.Leave3B.text(),
-            "LeaveYearA": self.LeaveYearA.text(),
-            "LeaveYearB": self.LeaveYearB.text(),
-            "BusinessTripA": self.BusinessTripA.text(),
-            "BusinessTripB": self.BusinessTripB.text(),
-            "BusinessTripConcentration": self.BusinessTripConcentration.text(),
-            "AnnualPerformanceGradeA": self.AnnualPerformanceGradeA.text(),
-            "AnnualPerformanceGradeB": self.AnnualPerformanceGradeB.text(),
-            "AnnualPerformanceGradeC": self.AnnualPerformanceGradeC.text(),
-            "AgeLevel": self.AgeLevel.text(),
-            "MaritalStatus": self.MaritalStatus.text(),
-            "Dependents": self.Dependents.text(),
-            "SeniorityA": self.SeniorityA.text(),
-            "SeniorityB": self.SeniorityB.text(),
-            "SeniorityC": self.SeniorityC.text(),
-            "AverageYear": self.AverageYear.text(),
-            "Education": self.Education.text(),
-            "School": self.School.text(),
-            "Department": self.Department.text()
+            '最新離職預測': 3,
+            "sex": self.Sex.text(),
+            "工作分類": self.Job_classification.text(),
+            "職等": self.Grade.text(),
+            "廠區代碼": self.FactoryCode.text(),
+            "管理層級": self.ManageLevel.text(),
+            "歸屬部門": self.BelongingDepartment.text(),
+            "工作資歷1": self.WorkQualifications1.text(),
+            "工作資歷2": self.WorkQualifications2.text(),
+            "工作資歷3": self.WorkQualifications3.text(),
+            "工作資歷4": self.WorkQualifications4.text(),
+            "工作資歷5": self.WorkQualifications5.text(),
+            "是否升遷": self.WhetherPromoted.text(),
+            "升遷速度": self.PromotedSpeed.text(),
+            "專案時數": self.ProjectHours.text(),
+            "專案總數": self.ProjectTotal.text(),
+            "當前專案角色": self.CurrentProjectRole.text(),
+            "特殊專案佔比": self.ProportionOfSpecialProject.text(),
+            "工作地點": self.WorkPlace.text(),
+            "訓練時數A": self.TrainingHoursA.text(),
+            "訓練時數B": self.TrainingHoursB.text(),
+            "訓練時數C": self.TrainingHoursC.text(),
+            "生產總額": self.TotalProduction.text(),
+            "榮譽數": self.NumberOfHonors.text(),
+            "通勤成本": self.CommutingCosts.text(),
+            "近三月請假數A": self.Leave3A.text(),
+            "近三月請假數B": self.Leave3B.text(),
+            "近一年請假數A": self.LeaveYearA.text(),
+            "近一年請假數B": self.LeaveYearB.text(),
+            "出差數A": self.BusinessTripA.text(),
+            "出差數B": self.BusinessTripB.text(),
+            "出差集中度": self.BusinessTripConcentration.text(),
+            "年度績效等級A": self.AnnualPerformanceGradeA.text(),
+            "年度績效等級B": self.AnnualPerformanceGradeB.text(),
+            "年度績效等級C": self.AnnualPerformanceGradeC.text(),
+            "年齡層級": self.AgeLevel.text(),
+            "婚姻狀況": self.MaritalStatus.text(),
+            "眷屬量": self.Dependents.text(),
+            "年資層級A": self.SeniorityA.text(),
+            "年資層級B": self.SeniorityB.text(),
+            "年資層級C": self.SeniorityC.text(),
+            "任職前工作平均年數": self.AverageYear.text(),
+            "最高學歷": self.Education.text(),
+            "畢業學校類別": self.School.text(),
+            "畢業科系類別": self.Department.text()
         }
         return data
     
@@ -82,15 +80,15 @@ class ManageEmployeeInformationWindow(QMainWindow, Ui_ManageEmployeeInformationW
             return
         
         # 檢查 PerStatus 是否為 0
-        if data['PerStatus'] == "0":
-            self.success.setText("因有欄目未被填寫或員工在職狀態、編號異常\n，故加入資料庫失敗，請重新填寫")
-            return
+        #if data['PerStatus'] == "0":
+         #   self.success.setText("因有欄目未被填寫或員工在職狀態、編號異常\n，故加入資料庫失敗，請重新填寫")
+          #  return
         
         conn = sqlite3.connect('employee_management.db')
         cursor = conn.cursor()
         
         # 檢查 PerNo 是否存在於資料庫
-        cursor.execute('SELECT PerNo FROM employees WHERE PerNo = ?', (data['PerNo'],))
+        cursor.execute('SELECT PerNo FROM PredictionEmployee WHERE PerNo = ?', (data['PerNo'],))
         if cursor.fetchone() is not None:
             self.success.setText("因有欄目未被填寫或員工在職狀態、編號異常\n，故加入資料庫失敗，請重新填寫")
             conn.close()
@@ -98,16 +96,16 @@ class ManageEmployeeInformationWindow(QMainWindow, Ui_ManageEmployeeInformationW
     
         try:
             cursor.execute('''
-            INSERT INTO employees VALUES (
-                :Answer, :Year, :PerNo, :PerStatus, :Sex, :Job_classification, :Grade, :FactoryCode,
-                :ManageLevel, :BelongingDepartment, :WorkQualifications1, :WorkQualifications2,
-                :WorkQualifications3, :WorkQualifications4, :WorkQualifications5, :WhetherPromoted,
-                :PromotedSpeed, :ProjectHours, :ProjectTotal, :CurrentProjectRole, :ProportionOfSpecialProject,
-                :WorkPlace, :TrainingHoursA, :TrainingHoursB, :TrainingHoursC, :TotalProduction, :NumberOfHonors,
-                :CommutingCosts, :Leave3A, :Leave3B, :LeaveYearA, :LeaveYearB, :BusinessTripA, :BusinessTripB,
-                :BusinessTripConcentration, :AnnualPerformanceGradeA, :AnnualPerformanceGradeB, :AnnualPerformanceGradeC,
-                :AgeLevel, :MaritalStatus, :Dependents, :SeniorityA, :SeniorityB, :SeniorityC, :AverageYear,
-                :Education, :School, :Department
+            INSERT INTO PredictionEmployee VALUES (
+                :yyyy, :PerNo, :最新離職預測, :sex, :工作分類, :職等, :廠區代碼,
+                :管理層級, :歸屬部門, :工作資歷1, :工作資歷2,
+                :工作資歷3, :工作資歷4, :工作資歷5, :是否升遷,
+                :升遷速度, :專案時數, :專案總數, :當前專案角色, :特殊專案佔比,
+                :工作地點, :訓練時數A, :訓練時數B, :訓練時數C, :生產總額, :榮譽數,
+                :通勤成本, :近三月請假數A, :近三月請假數B, :近一年請假數A, :近一年請假數B, :出差數A, :出差數B,
+                :出差集中度, :年度績效等級A, :年度績效等級B, :年度績效等級C,
+                :年齡層級, :婚姻狀況, :眷屬量, :年資層級A, :年資層級B, :年資層級C, :任職前工作平均年數,
+                :最高學歷, :畢業學校類別, :畢業科系類別
             )''', data)
             conn.commit()
             self.success.setText("已新增成功")
@@ -132,7 +130,7 @@ class ManageEmployeeInformationWindow(QMainWindow, Ui_ManageEmployeeInformationW
             self.success.setText("沒有要更新的資料")
             return
         
-        query = f"UPDATE employees SET {set_clause} WHERE PerNo = :PerNo"
+        query = f"UPDATE PredictionEmployee SET {set_clause} WHERE PerNo = :PerNo"
         data["PerNo"] = PerNo
         
         conn = sqlite3.connect('employee_management.db')
@@ -153,7 +151,7 @@ class ManageEmployeeInformationWindow(QMainWindow, Ui_ManageEmployeeInformationW
         conn = sqlite3.connect('employee_management.db')  # 連接資料庫
         cursor = conn.cursor()  
         
-        cursor.execute("SELECT * FROM employees WHERE PerNo = ?", (PerNo,))  # 用PerNo查詢員工
+        cursor.execute("SELECT * FROM PredictionEmployee WHERE PerNo = ?", (PerNo,))  # 用PerNo查詢員工
         employee = cursor.fetchone()  # 獲得查詢到的資料
         
         if not employee:  # 沒找到員工的情況
@@ -173,7 +171,7 @@ class ManageEmployeeInformationWindow(QMainWindow, Ui_ManageEmployeeInformationW
                 conn.close()  
                 return 
     
-        cursor.execute("DELETE FROM employees WHERE PerNo = ?", (PerNo,))  # 如果相同就刪除
+        cursor.execute("DELETE FROM PredictionEmployee WHERE PerNo = ?", (PerNo,))  # 如果相同就刪除
         conn.commit()  
         self.success.setText("已刪除成功") 
         
@@ -183,7 +181,6 @@ class ManageEmployeeInformationWindow(QMainWindow, Ui_ManageEmployeeInformationW
 
 
     def go_to_previous_page(self):
-        #self.previous_page_success.emit()
         from nextpage import NextPageWindow
         self.next_page = NextPageWindow()
         self.next_page.show()

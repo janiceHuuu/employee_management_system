@@ -1,6 +1,7 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox
 from search_employee_information_ui import Ui_MainWindow as Ui_SearchEmployeeInformationWindow
+
 import sqlite3
 
 class SearchEmployeeInformationWindow(QMainWindow, Ui_SearchEmployeeInformationWindow):
@@ -9,26 +10,35 @@ class SearchEmployeeInformationWindow(QMainWindow, Ui_SearchEmployeeInformationW
         self.setupUi(self)
         self.search.clicked.connect(self.search_employee)
         self.previous_page.clicked.connect(self.go_to_previous_page)
-
+        
     def search_employee(self):
         data = self.get_employee_data()
         search_criteria = {key: value for key, value in data.items() if value}
+        print(search_criteria)
         
         if not search_criteria:
-            self.message.setText("請至少輸入一項搜索條件")  # 在 QLabel 中顯示錯誤訊息
+            self.message.setText("請至少輸入一項搜索條件")
             return
         
-        query = "SELECT * FROM employees WHERE " + " AND ".join([f"{key} = ?" for key in search_criteria.keys()])
+        query = "SELECT * FROM PredictionEmployee WHERE " + " AND ".join([f"{key} = ?" for key in search_criteria.keys()])
+        
         conn = sqlite3.connect('employee_management.db')
         cursor = conn.cursor()
         cursor.execute(query, tuple(search_criteria.values()))
-        results = cursor.fetchall()
+        
+        results = []
+        while True:
+            chunk = cursor.fetchmany(100)  # 每次加載100行資料
+            if not chunk:
+                break
+            results.extend(chunk)
+        
         conn.close()
     
         if not results:
             QMessageBox.warning(self, "No Results", "沒有找到匹配的結果")
         else:
-            self.hide()  # 隱藏當前窗口
+            self.hide()
             from search_answer import SearchAnswerWindow
             self.search_answer_page = SearchAnswerWindow(results)
             self.search_answer_page.show()
@@ -36,52 +46,52 @@ class SearchEmployeeInformationWindow(QMainWindow, Ui_SearchEmployeeInformationW
 
     def get_employee_data(self):
         data = {
-            "Year": self.Year.text(),
+            "yyyy": self.Year.text(),
             "PerNo": self.PerNo.text(),
-            "Sex": self.Sex.text(),
-            "Job_classification": self.Job_classification.text(),
-            "Grade": self.Grade.text(),
-            "FactoryCode": self.FactoryCode.text(),
-            "ManageLevel": self.ManageLevel.text(),
-            "BelongingDepartment": self.BelongingDepartment.text(),
-            "WorkQualifications1": self.WorkQualifications1.text(),
-            "WorkQualifications2": self.WorkQualifications2.text(),
-            "WorkQualifications3": self.WorkQualifications3.text(),
-            "WorkQualifications4": self.WorkQualifications4.text(),
-            "WorkQualifications5": self.WorkQualifications5.text(),
-            "WhetherPromoted": self.WhetherPromoted.text(),
-            "PromotedSpeed": self.PromotedSpeed.text(),
-            "ProjectHours": self.ProjectHours.text(),
-            "ProjectTotal": self.ProjectTotal.text(),
-            "CurrentProjectRole": self.CurrentProjectRole.text(),
-            "ProportionOfSpecialProject": self.ProportionOfSpecialProject.text(),
-            "WorkPlace": self.WorkPlace.text(),
-            "TrainingHoursA": self.TrainingHoursA.text(),
-            "TrainingHoursB": self.TrainingHoursB.text(),
-            "TrainingHoursC": self.TrainingHoursC.text(),
-            "TotalProduction": self.TotalProduction.text(),
-            "NumberOfHonors": self.NumberOfHonors.text(),
-            "CommutingCosts": self.CommutingCosts.text(),
-            "Leave3A": self.Leave3A.text(),
-            "Leave3B": self.Leave3B.text(),
-            "LeaveYearA": self.LeaveYearA.text(),
-            "LeaveYearB": self.LeaveYearB.text(),
-            "BusinessTripA": self.BusinessTripA.text(),
-            "BusinessTripB": self.BusinessTripB.text(),
-            "BusinessTripConcentration": self.BusinessTripConcentration.text(),
-            "AnnualPerformanceGradeA": self.AnnualPerformanceGradeA.text(),
-            "AnnualPerformanceGradeB": self.AnnualPerformanceGradeB.text(),
-            "AnnualPerformanceGradeC": self.AnnualPerformanceGradeC.text(),
-            "AgeLevel": self.AgeLevel.text(),
-            "MaritalStatus": self.MaritalStatus.text(),
-            "Dependents": self.Dependents.text(),
-            "SeniorityA": self.SeniorityA.text(),
-            "SeniorityB": self.SeniorityB.text(),
-            "SeniorityC": self.SeniorityC.text(),
-            "AverageYear": self.AverageYear.text(),
-            "Education": self.Education.text(),
-            "School": self.School.text(),
-            "Department": self.Department.text()
+            "sex": self.Sex.text(),
+            "工作分類": self.Job_classification.text(),
+            "職等": self.Grade.text(),
+            "廠區代碼": self.FactoryCode.text(),
+            "管理層級": self.ManageLevel.text(),
+            "歸屬部門": self.BelongingDepartment.text(),
+            "工作資歷1": self.WorkQualifications1.text(),
+            "工作資歷2": self.WorkQualifications2.text(),
+            "工作資歷3": self.WorkQualifications3.text(),
+            "工作資歷4": self.WorkQualifications4.text(),
+            "工作資歷5": self.WorkQualifications5.text(),
+            "是否升遷": self.WhetherPromoted.text(),
+            "升遷速度": self.PromotedSpeed.text(),
+            "專案時數": self.ProjectHours.text(),
+            "專案總數": self.ProjectTotal.text(),
+            "當前專案角色": self.CurrentProjectRole.text(),
+            "特殊專案佔比": self.ProportionOfSpecialProject.text(),
+            "工作地點": self.WorkPlace.text(),
+            "訓練時數A": self.TrainingHoursA.text(),
+            "訓練時數B": self.TrainingHoursB.text(),
+            "訓練時數C": self.TrainingHoursC.text(),
+            "生產總額": self.TotalProduction.text(),
+            "榮譽數": self.NumberOfHonors.text(),
+            "通勤成本": self.CommutingCosts.text(),
+            "近三月請假數A": self.Leave3A.text(),
+            "近三月請假數B": self.Leave3B.text(),
+            "近一年請假數A": self.LeaveYearA.text(),
+            "近一年請假數B": self.LeaveYearB.text(),
+            "出差數A": self.BusinessTripA.text(),
+            "出差數B": self.BusinessTripB.text(),
+            "出差集中度": self.BusinessTripConcentration.text(),
+            "年度績效等級A": self.AnnualPerformanceGradeA.text(),
+            "年度績效等級B": self.AnnualPerformanceGradeB.text(),
+            "年度績效等級C": self.AnnualPerformanceGradeC.text(),
+            "年齡層級": self.AgeLevel.text(),
+            "婚姻狀況": self.MaritalStatus.text(),
+            "眷屬量": self.Dependents.text(),
+            "年資層級A": self.SeniorityA.text(),
+            "年資層級B": self.SeniorityB.text(),
+            "年資層級C": self.SeniorityC.text(),
+            "任職前工作平均年數": self.AverageYear.text(),
+            "最高學歷": self.Education.text(),
+            "畢業學校類別": self.School.text(),
+            "畢業科系類別": self.Department.text()
         }
         return data
 

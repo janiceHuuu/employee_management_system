@@ -5,7 +5,7 @@ def csv_to_db(csv_file, db_file):
     
     conn = sqlite3.connect(db_file)
     cursor = conn.cursor()
-
+    
     #建立table => PredictionEmployee
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS PredictionEmployee (
