@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(672, 507)
+        MainWindow.resize(672, 506)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.label_3 = QtWidgets.QLabel(self.centralwidget)
@@ -104,9 +104,9 @@ class Ui_MainWindow(object):
         self.label_4.setScaledContents(True)
         self.label_4.setObjectName("label_4")
         self.label_3.raise_()
-        self.label_6.raise_()
-        self.label_5.raise_()
         self.label_4.raise_()
+        self.label_5.raise_()
+        self.label_6.raise_()
         self.layoutWidget.raise_()
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)

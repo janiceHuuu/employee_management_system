@@ -87,33 +87,7 @@
          </property>
         </widget>
        </item>
-       <item row="2" column="0">
-        <widget class="QPushButton" name="search_employee_information">
-         <property name="font">
-          <font>
-           <family>Heiti TC</family>
-           <pointsize>14</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>查詢員工資料</string>
-         </property>
-        </widget>
-       </item>
        <item row="3" column="0">
-        <widget class="QPushButton" name="employee_turnover_forecast">
-         <property name="font">
-          <font>
-           <family>Heiti TC</family>
-           <pointsize>14</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>員工離職預測</string>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="0">
         <widget class="QPushButton" name="visual_drawing">
          <property name="font">
           <font>
@@ -123,6 +97,19 @@
          </property>
          <property name="text">
           <string>視覺化繪圖</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QPushButton" name="employee_turnover_forecast">
+         <property name="font">
+          <font>
+           <family>Heiti TC</family>
+           <pointsize>14</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>員工離職預測</string>
          </property>
         </widget>
        </item>

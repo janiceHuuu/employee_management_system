@@ -4,7 +4,7 @@ from nextpage_ui import Ui_MainWindow as Ui_NextPageWindow
 from manage_employee_information import ManageEmployeeInformationWindow
 from employee_turnover_forecast import EmployeeTurnoverForecastWindow
 from visual_drawing import VisualDrawingWindow
-from search_employee_information import SearchEmployeeInformationWindow
+#from search_employee_information import SearchEmployeeInformationWindow
 
 class NextPageWindow(QMainWindow, Ui_NextPageWindow):
     def __init__(self):
@@ -13,7 +13,7 @@ class NextPageWindow(QMainWindow, Ui_NextPageWindow):
         self.manage_employee_information.clicked.connect(self.open_manage_employee_information)
         self.employee_turnover_forecast.clicked.connect(self.open_employee_turnover_forecast)
         self.visual_drawing.clicked.connect(self.open_visual_drawing)
-        self.search_employee_information.clicked.connect(self.open_search_employee_information)
+        #self.search_employee_information.clicked.connect(self.open_search_employee_information)
 
     def open_manage_employee_information(self):
         self.manage_employee_info_page = ManageEmployeeInformationWindow()
@@ -30,10 +30,10 @@ class NextPageWindow(QMainWindow, Ui_NextPageWindow):
         self.visual_drawing_page.show()
         self.close()
         
-    def open_search_employee_information(self):
-        self.search_employee_information_page = SearchEmployeeInformationWindow()
-        self.search_employee_information_page.show()
-        self.close()
+    #def open_search_employee_information(self):
+        #self.search_employee_information_page = SearchEmployeeInformationWindow()
+        #self.search_employee_information_page.show()
+        #self.close()
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

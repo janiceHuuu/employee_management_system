@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>672</width>
-    <height>507</height>
+    <height>506</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -257,9 +257,9 @@
     </property>
    </widget>
    <zorder>label_3</zorder>
-   <zorder>label_6</zorder>
-   <zorder>label_5</zorder>
    <zorder>label_4</zorder>
+   <zorder>label_5</zorder>
+   <zorder>label_6</zorder>
    <zorder>layoutWidget</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
