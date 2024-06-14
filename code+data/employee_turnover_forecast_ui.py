@@ -16,6 +16,15 @@ class Ui_MainWindow(object):
         MainWindow.resize(850, 650)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
+        
+        #加背景顏色
+        self.label_3 = QtWidgets.QLabel(self.centralwidget)
+        self.label_3.setGeometry(QtCore.QRect(-80, -15, 1521, 881))
+        self.label_3.setStyleSheet("background-color:#DCF1FE;")
+        self.label_3.setText("")
+        self.label_3.setObjectName("label_3")
+        
+        
         self.tabWidget = QtWidgets.QTabWidget(self.centralwidget)
         self.tabWidget.setGeometry(QtCore.QRect(10, 10, 830, 590))
         self.tabWidget.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
