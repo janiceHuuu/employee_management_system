@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>672</width>
-    <height>506</height>
+    <height>507</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -193,7 +193,7 @@
         </font>
        </property>
        <property name="text">
-        <string>歡迎來到員工管理系統</string>
+        <string>   員工管理系統</string>
        </property>
       </widget>
      </item>

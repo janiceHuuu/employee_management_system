@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(672, 506)
+        MainWindow.resize(672, 507)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.label_3 = QtWidgets.QLabel(self.centralwidget)
@@ -126,4 +126,4 @@ class Ui_MainWindow(object):
         self.label.setText(_translate("MainWindow", "帳號："))
         self.label_2.setText(_translate("MainWindow", "密碼："))
         self.loginButton.setText(_translate("MainWindow", "登入"))
-        self.label_7.setText(_translate("MainWindow", "歡迎來到員工管理系統"))
+        self.label_7.setText(_translate("MainWindow", "   員工管理系統"))
