@@ -182,9 +182,10 @@ class EmployeeTurnoverForecastWindow(QMainWindow, Ui_EmployeeTurnoverForecastWin
                     button = 'YesNo'
                     r = self.messagebox(text, title, iconSet, img_icon, button)
                     if r == QMessageBox.Yes:
-                        self.emailSender.to = 'e94106119@gs.ncku.edu.tw'
-                        self.emailSender.body = self.textEdit.toPlainText()
-                        self.emailSender.main()
+                        # self.emailSender.to = ''
+                        # self.emailSender.body = self.textEdit.toPlainText()
+                        # self.emailSender.main()
+                        pass
             
             if not found:
                 text = "該員工不存在"

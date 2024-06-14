@@ -18,7 +18,7 @@ class SendEmail():
         self.SCOPES = ['https://www.googleapis.com/auth/gmail.send']
         # 郵件內容
         self.sender = 'BOSS'
-        self.to = 'e94106119@gs.ncku.edu.tw'
+        self.to = ''
         self.subject = '來自BOSS的約談信'
         self.body = ''
 
