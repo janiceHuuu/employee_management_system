@@ -9,7 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+import os
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -723,18 +723,26 @@ class Ui_MainWindow(object):
         self.label_3.setStyleSheet("background-color:#DCF1FE;")
         self.label_3.setText("")
         self.label_3.setObjectName("label_3")
+        
+        script_dir = os.path.dirname(__file__)
+        img_path_4_2 = os.path.join(script_dir, "picture", "p04拷貝2.png")
+        img_path_5 = os.path.join(script_dir, "picture", "ppppp.png")
+        
         self.label_22 = QtWidgets.QLabel(self.centralwidget)
         self.label_22.setGeometry(QtCore.QRect(750, 30, 151, 151))
         self.label_22.setText("")
-        self.label_22.setPixmap(QtGui.QPixmap("../../../../Downloads/p04拷貝2.png"))
+        self.label_22.setPixmap(QtGui.QPixmap(img_path_4_2))
         self.label_22.setScaledContents(True)
         self.label_22.setObjectName("label_22")
         self.label_36 = QtWidgets.QLabel(self.centralwidget)
         self.label_36.setGeometry(QtCore.QRect(0, 500, 111, 111))
         self.label_36.setText("")
-        self.label_36.setPixmap(QtGui.QPixmap("../../../../Downloads/ppppp.png"))
+        self.label_36.setPixmap(QtGui.QPixmap(img_path_5))
         self.label_36.setScaledContents(True)
         self.label_36.setObjectName("label_36")
+        
+        
+        
         self.label_3.raise_()
         self.previous_page.raise_()
         self.layoutWidget.raise_()

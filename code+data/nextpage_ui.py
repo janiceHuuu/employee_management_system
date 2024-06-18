@@ -9,7 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+import os
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -69,18 +69,28 @@ class Ui_MainWindow(object):
         self.gridLayout_2.addItem(spacerItem2, 1, 2, 1, 1)
         spacerItem3 = QtWidgets.QSpacerItem(20, 58, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.gridLayout_2.addItem(spacerItem3, 2, 1, 1, 1)
+        
+        
+        script_dir = os.path.dirname(__file__)
+        img_path_4 = os.path.join(script_dir, "picture", "p04拷貝.png")
+        img_path_4_1 = os.path.join(script_dir, "picture", "p04.png")
+        
         self.label_4 = QtWidgets.QLabel(self.centralwidget)
         self.label_4.setGeometry(QtCore.QRect(360, 160, 201, 211))
         self.label_4.setText("")
-        self.label_4.setPixmap(QtGui.QPixmap("../../../../Downloads/p04拷貝.png"))
+        self.label_4.setPixmap(QtGui.QPixmap(img_path_4))
         self.label_4.setScaledContents(True)
         self.label_4.setObjectName("label_4")
         self.label_3 = QtWidgets.QLabel(self.centralwidget)
         self.label_3.setGeometry(QtCore.QRect(-1, 105, 251, 231))
         self.label_3.setText("")
-        self.label_3.setPixmap(QtGui.QPixmap("../../../../Downloads/p04.png"))
+        self.label_3.setPixmap(QtGui.QPixmap(img_path_4_1))
         self.label_3.setScaledContents(True)
         self.label_3.setObjectName("label_3")
+        
+        
+        
+        
         self.label_2.raise_()
         self.label_4.raise_()
         self.label_3.raise_()

@@ -17,6 +17,9 @@ if __name__ == "__main__":
     login_window = LoginWindow()
     login_window.show()
 
+
+    
+
     # 創建其他窗口實例，但初始時不顯示
     next_page_window = NextPageWindow()
     manage_employee_window = ManageEmployeeInformationWindow()
