@@ -1,2 +1,14 @@
 
 *.pyc
+code+data/__pycache__/drawing_answer.cpython-311.pyc
+code+data/__pycache__/drawing_answer_ui.cpython-311.pyc
+code+data/__pycache__/employee_turnover_forecast.cpython-311.pyc
+code+data/__pycache__/employee_turnover_forecast_ui.cpython-311.pyc
+code+data/__pycache__/login.cpython-311.pyc
+code+data/__pycache__/login_ui.cpython-311.pyc
+code+data/__pycache__/manage_employee_information.cpython-311.pyc
+code+data/__pycache__/manage_employee_information_ui.cpython-311.pyc
+code+data/__pycache__/nextpage.cpython-311.pyc
+code+data/__pycache__/nextpage_ui.cpython-311.pyc
+code+data/__pycache__/visual_drawing.cpython-311.pyc
+code+data/__pycache__/visual_drawing_ui.cpython-311.pyc
