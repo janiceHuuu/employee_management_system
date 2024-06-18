@@ -32,7 +32,7 @@ class ManageEmployeeInformationWindow(QMainWindow, Ui_ManageEmployeeInformationW
         data = self.get_employee_data()
         
         if any(value == "" for value in data.values()):
-            self.success.setText("因有欄目未被填寫或員工在職狀態、編號異常，故加入資料庫失敗，請重新填寫")
+            self.success.setText("因有欄目未被填寫或編號異常\n，故加入資料庫失敗，請重新填寫")
             return
         
         try:
