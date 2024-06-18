@@ -117,9 +117,9 @@ class DrawingAnswerWindow(QMainWindow):
         status_percent.plot(kind='bar', stacked=True, ax=self.ax)
 
     def go_to_previous_page(self):
-        from nextpage import NextPageWindow
-        self.next_page = NextPageWindow()
-        self.next_page.show()
+        from visual_drawing import VisualDrawingWindow
+        self.visual_drawing_page = VisualDrawingWindow()
+        self.visual_drawing_page.show()
         self.close()
 
 class VisualDrawingWindow(QMainWindow, Ui_VisualDrawingWindow):
@@ -156,9 +156,9 @@ class VisualDrawingWindow(QMainWindow, Ui_VisualDrawingWindow):
         self.close()
 
     def go_to_previous_page(self):
-        from visual_drawing import VisualDrawingWindow
-        self.visual_drawing_page = VisualDrawingWindow()
-        self.visual_drawing_page.show()
+        from nextpage import NextPageWindow
+        self.next_page = NextPageWindow()
+        self.next_page.show()
         self.close()
         
 if __name__ == "__main__":
