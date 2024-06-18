@@ -46,16 +46,24 @@ class DrawingAnswerWindow(QMainWindow):
         df_selected = df_selected.dropna()
 
         if self.selected_field == 'sex':
-            status_count = df_selected.groupby(['sex', 'PerStatus']).size().unstack(fill_value=0)
-            status_percent = status_count.div(status_count.sum(axis=1), axis=0) * 100
-            status_percent.plot(kind='bar', stacked=True, ax=self.ax)
+            status_sex_count = df_selected.groupby(['sex', 'PerStatus']).size().unstack(fill_value=0)
+            status_sex_percent = status_sex_count.div(status_sex_count.sum(axis=1), axis=0) * 100
+            status_sex_percent.plot(kind='bar', stacked=True, ax=self.ax)
+            self.ax.set_xticks([0, 1])
             self.ax.set_xticklabels(['Female', 'Male'])
 
         elif self.selected_field == 'year':
             df_selected = df_selected[df_selected['year'].isin([2014, 2015, 2016, 2017])]
-            status_count = df_selected.groupby(['year', 'PerStatus']).size().unstack(fill_value=0)
-            status_percent = status_count.div(status_count.sum(axis=1), axis=0) * 100
-            status_percent.plot(kind='bar', stacked=True, ax=self.ax)
+            status_year_count = df_selected.groupby(['year', 'PerStatus']).size().unstack(fill_value=0)
+            status_year_percent = status_year_count.div(status_year_count.sum(axis=1), axis=0) * 100
+            status_year_percent.plot(kind='bar', stacked=True, ax=self.ax)
+
+        elif self.selected_field == 'CommutingCosts':
+            df_selected['CommutingCosts_bin'] = pd.cut(df_selected['CommutingCosts'], bins=5)
+            group_col = 'CommutingCosts_bin'
+            status_commutingcosts_count = df_selected.groupby([group_col, 'PerStatus']).size().unstack(fill_value=0)
+            status_commutingcosts_percent = status_commutingcosts_count.div(status_commutingcosts_count.sum(axis=1), axis=0) * 100
+            status_commutingcosts_percent.plot(kind='bar', stacked=True, ax=self.ax)
 
         elif self.selected_field in ['Job_classification', 'Grade', 'FactoryCode', 'ManageLevel', 'WorkQualifications1',
                                      'WorkQualifications2', 'WorkQualifications3', 'WorkQualifications4', 'WorkQualifications5',
