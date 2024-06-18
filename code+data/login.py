@@ -20,7 +20,7 @@ class LoginWindow(QMainWindow, Ui_LoginWindow):
             #self.open_next_page()
     
         else:
-            self.messageLabel.setText("Incorrect username or password.\nPlease try again.")
+            self.messageLabel.setText("    帳號或密碼錯誤，請重新輸入")
             
     #def open_next_page(self):
         #self.next_page = NextPageWindow()
