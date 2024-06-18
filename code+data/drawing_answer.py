@@ -1,6 +1,7 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel
 from drawing_answer_ui import Ui_MainWindow as Ui_DrawingAnswerWindow
+from PyQt5.QtGui import QIcon
 
 class DrawingAnswerWindow(QMainWindow, Ui_DrawingAnswerWindow):
     def __init__(self, selected_field):
@@ -25,5 +26,6 @@ class DrawingAnswerWindow(QMainWindow, Ui_DrawingAnswerWindow):
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     window = DrawingAnswerWindow("Default Field")  # Provide a default field for testing
+    window.setWindowIcon(QIcon('icon/al5nr-twq6f-001.ico'))
     window.show()
     sys.exit(app.exec_())

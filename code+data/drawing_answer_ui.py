@@ -47,7 +47,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "員工管理系統"))
         self.previous_page.setText(_translate("MainWindow", "上一頁"))
 
 

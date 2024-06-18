@@ -5,6 +5,7 @@ from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox, QCheckBox, QVBoxLayout, QHBoxLayout, QWidget, QPushButton, QScrollArea
 from PyQt5.QtCore import Qt
 from visual_drawing_ui import Ui_MainWindow as Ui_VisualDrawingWindow
+from PyQt5.QtGui import QIcon
 
 class DrawingAnswerWindow(QMainWindow):
     def __init__(self, selected_field):
@@ -164,5 +165,6 @@ class VisualDrawingWindow(QMainWindow, Ui_VisualDrawingWindow):
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     window = VisualDrawingWindow()
+    window.setWindowIcon(QIcon('icon/al5nr-twq6f-001.ico'))
     window.show()
     sys.exit(app.exec_())

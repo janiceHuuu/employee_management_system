@@ -2,6 +2,7 @@ import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QLineEdit
 import sqlite3
 from manage_employee_information_ui import Ui_MainWindow as Ui_ManageEmployeeInformationWindow
+from PyQt5.QtGui import QIcon
 
 class ManageEmployeeInformationWindow(QMainWindow, Ui_ManageEmployeeInformationWindow):
     
@@ -193,5 +194,6 @@ class ManageEmployeeInformationWindow(QMainWindow, Ui_ManageEmployeeInformationW
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     window = ManageEmployeeInformationWindow()
+    window.setWindowIcon(QIcon('icon/azvtu-m979f-001.ico'))
     window.show()
     sys.exit(app.exec_())

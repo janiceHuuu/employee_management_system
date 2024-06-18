@@ -117,7 +117,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "員工管理系統"))
         self.label.setText(_translate("MainWindow", "功能選擇"))
         self.visual_drawing.setText(_translate("MainWindow", "視覺化繪圖"))
         self.employee_turnover_forecast.setText(_translate("MainWindow", "員工離職預測"))

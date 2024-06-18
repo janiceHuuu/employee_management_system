@@ -247,5 +247,6 @@ class EmployeeTurnoverForecastWindow(QMainWindow, Ui_EmployeeTurnoverForecastWin
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     window = EmployeeTurnoverForecastWindow()
+    window.setWindowIcon(QIcon('icon/azvtu-m979f-001.ico'))
     window.show()
     sys.exit(app.exec_())
