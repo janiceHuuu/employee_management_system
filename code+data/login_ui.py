@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(672, 506)
+        self.setFixedSize(672, 506)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.label_3 = QtWidgets.QLabel(self.centralwidget)
@@ -39,8 +39,8 @@ class Ui_MainWindow(object):
         self.label = QtWidgets.QLabel(self.layoutWidget)
         self.label.setMinimumSize(QtCore.QSize(0, 16))
         font = QtGui.QFont()
-        font.setFamily("Heiti TC")
-        font.setPointSize(14)
+        font.setFamily("微軟正黑體")
+        font.setPointSize(12)
         self.label.setFont(font)
         self.label.setObjectName("label")
         self.gridLayout.addWidget(self.label, 0, 0, 1, 1)
@@ -51,8 +51,8 @@ class Ui_MainWindow(object):
         self.label_2 = QtWidgets.QLabel(self.layoutWidget)
         self.label_2.setMinimumSize(QtCore.QSize(0, 16))
         font = QtGui.QFont()
-        font.setFamily("Heiti TC")
-        font.setPointSize(14)
+        font.setFamily("微軟正黑體")
+        font.setPointSize(12)
         self.label_2.setFont(font)
         self.label_2.setObjectName("label_2")
         self.gridLayout.addWidget(self.label_2, 1, 0, 1, 1)
@@ -63,8 +63,8 @@ class Ui_MainWindow(object):
         self.loginButton = QtWidgets.QPushButton(self.layoutWidget)
         self.loginButton.setMinimumSize(QtCore.QSize(0, 32))
         font = QtGui.QFont()
-        font.setFamily("Heiti TC")
-        font.setPointSize(14)
+        font.setFamily("微軟正黑體")
+        font.setPointSize(12)
         self.loginButton.setFont(font)
         self.loginButton.setObjectName("loginButton")
         self.gridLayout.addWidget(self.loginButton, 2, 0, 1, 2)
@@ -80,7 +80,7 @@ class Ui_MainWindow(object):
         self.gridLayout_3.addItem(spacerItem3, 0, 1, 1, 1)
         self.label_7 = QtWidgets.QLabel(self.layoutWidget)
         font = QtGui.QFont()
-        font.setFamily("Heiti TC")
+        font.setFamily("微軟正黑體")
         font.setPointSize(24)
         self.label_7.setFont(font)
         self.label_7.setObjectName("label_7")
@@ -88,26 +88,19 @@ class Ui_MainWindow(object):
         
        
         
-        
-       # 設定圖片相對路徑
-        project_path = os.path.dirname(os.path.abspath(__file__))
-        picture_path = os.path.join(project_path, "code+data", "picture")
-        img_path_1 = os.path.join(picture_path, "p03.png")
-        img_path_2 = os.path.join(picture_path, "p02.png")
-        img_path_3 = os.path.join(picture_path, "p01.png")
-
-        # 打印路徑進行檢查
-        print("img_path_1:", img_path_1)
-        print("img_path_2:", img_path_2)
-        print("img_path_3:", img_path_3)
+       # 設定圖片的相對路徑
+        script_dir = os.path.dirname(__file__)
+        img_path_1 = os.path.join(script_dir, "picture", "p03.png")
+        img_path_2 = os.path.join(script_dir, "picture", "p02.png")
+        img_path_3 = os.path.join(script_dir, "picture", "p01.png")
 
         # 確認圖片可以正確加載
         if not os.path.exists(img_path_1):
-            print(f"Image not found: {img_path_1}")
+            print("Image not found:", img_path_1)
         if not os.path.exists(img_path_2):
-            print(f"Image not found: {img_path_2}")
+            print("Image not found:", img_path_2)
         if not os.path.exists(img_path_3):
-            print(f"Image not found: {img_path_3}")
+            print("Image not found:", img_path_3)
 
         self.label_5 = QtWidgets.QLabel(self.centralwidget)
         self.label_5.setGeometry(QtCore.QRect(260, 310, 141, 141))
@@ -115,14 +108,12 @@ class Ui_MainWindow(object):
         self.label_5.setPixmap(QtGui.QPixmap(img_path_1))
         self.label_5.setScaledContents(True)
         self.label_5.setObjectName("label_5")
-
         self.label_6 = QtWidgets.QLabel(self.centralwidget)
         self.label_6.setGeometry(QtCore.QRect(400, 320, 131, 121))
         self.label_6.setText("")
         self.label_6.setPixmap(QtGui.QPixmap(img_path_2))
         self.label_6.setScaledContents(True)
         self.label_6.setObjectName("label_6")
-
         self.label_4 = QtWidgets.QLabel(self.centralwidget)
         self.label_4.setGeometry(QtCore.QRect(139, 300, 161, 171))
         self.label_4.setText("")
