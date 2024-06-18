@@ -15,91 +15,97 @@ class DrawingAnswerWindow(QMainWindow):
         self.plot_relationship()
 
     def initUI(self):
-        self.resize(1000, 800)  # Set the window size to be larger
+        self.resize(1000, 800)
         self.main_widget = QWidget(self)
         self.setCentralWidget(self.main_widget)
         self.main_layout = QVBoxLayout(self.main_widget)
 
-        # Add the "Previous Page" button
         self.top_layout = QHBoxLayout()
         self.previous_button = QPushButton("上一頁", self)
         self.previous_button.clicked.connect(self.go_to_previous_page)
         self.top_layout.addWidget(self.previous_button)
-        self.top_layout.addStretch()  # Push the button to the left
+        self.top_layout.addStretch()
 
         self.main_layout.addLayout(self.top_layout)
-
-        # Add the canvas for the plot
         self.canvas = FigureCanvas(plt.Figure())
         self.main_layout.addWidget(self.canvas)
         self.ax = self.canvas.figure.add_subplot(111)
 
     def plot_relationship(self):
-        df = pd.read_csv('train.csv')
+        try:
+            df = pd.read_csv('train.csv')
+        except FileNotFoundError:
+            QMessageBox.critical(self, "Error", "The data file was not found.")
+            return
 
         if self.selected_field not in df.columns:
             QMessageBox.warning(self, "Error", "選擇的選項不存在於資料集中")
             return
 
-        selected_columns = ['PerStatus', self.selected_field]
-        df_selected = df[selected_columns]
-        df_selected = df_selected.dropna()
+        try:
+            selected_columns = ['PerStatus', self.selected_field]
+            df_selected = df[selected_columns].dropna()
 
-        if self.selected_field == 'sex':
-            status_sex_count = df_selected.groupby(['sex', 'PerStatus']).size().unstack(fill_value=0)
-            status_sex_percent = status_sex_count.div(status_sex_count.sum(axis=1), axis=0) * 100
-            status_sex_percent.plot(kind='bar', stacked=True, ax=self.ax)
-            self.ax.set_xticks([0, 1])
-            self.ax.set_xticklabels(['Female', 'Male'])
+            if self.selected_field == 'sex':
+                self.plot_sex(df_selected)
+            elif self.selected_field == 'year':
+                self.plot_year(df_selected)
+            elif self.selected_field == 'CommutingCosts':
+                self.plot_continuous(df_selected, 'CommutingCosts', bins=5)
+            elif self.selected_field in ['Job_classification', 'Grade', 'FactoryCode', 'ManageLevel', 'WorkQualifications1',
+                                         'WorkQualifications2', 'WorkQualifications3', 'WorkQualifications4', 'WorkQualifications5',
+                                         'CurrentProjectRole', 'WorkPlace', 'Education', 'School', 'Department', 'Dependents', 
+                                         'BelongingDepartment', 'MaritalStatus', 'AgeLevel']:
+                self.plot_categorical(df_selected, self.selected_field)
+            elif self.selected_field in ['ProjectHours', 'ProjectTotal', 'ProportionOfSpecialProject', 'TrainingHoursA',
+                                         'TrainingHoursB', 'TotalProduction', 'NumberOfHonors', 'PromotedSpeed', 'Leave3A',
+                                         'LeaveYearA', 'Leave3B', 'LeaveYearB', 'BusinessTripA', 'BusinessTripB', 
+                                         'BusinessTripConcentration', 'AnnualPerformanceGradeA', 'AnnualPerformanceGradeB', 
+                                         'AnnualPerformanceGradeC', 'SeniorityA', 'SeniorityB', 'SeniorityC']:
+                self.plot_continuous(df_selected, self.selected_field, bins=5)
+            elif self.selected_field == 'WhetherPromoted':
+                self.plot_categorical(df_selected, 'WhetherPromoted')
+            else:
+                QMessageBox.warning(self, "Error", f"Unexpected field: {self.selected_field}")
+                return
 
-        elif self.selected_field == 'year':
-            df_selected = df_selected[df_selected['year'].isin([2014, 2015, 2016, 2017])]
-            status_year_count = df_selected.groupby(['year', 'PerStatus']).size().unstack(fill_value=0)
-            status_year_percent = status_year_count.div(status_year_count.sum(axis=1), axis=0) * 100
-            status_year_percent.plot(kind='bar', stacked=True, ax=self.ax)
+            self.ax.set_title(f'The relationship between resignation and {self.selected_field}')
+            self.ax.set_xlabel(self.selected_field)
+            self.ax.set_ylabel('Percentage of people (%)')
+            self.ax.legend(title='whether to resign', labels=['staying', 'having resigned'])
+            self.ax.grid(axis='y')
+            self.canvas.draw()
 
-        elif self.selected_field == 'CommutingCosts':
-            df_selected['CommutingCosts_bin'] = pd.cut(df_selected['CommutingCosts'], bins=5)
-            group_col = 'CommutingCosts_bin'
-            status_commutingcosts_count = df_selected.groupby([group_col, 'PerStatus']).size().unstack(fill_value=0)
-            status_commutingcosts_percent = status_commutingcosts_count.div(status_commutingcosts_count.sum(axis=1), axis=0) * 100
-            status_commutingcosts_percent.plot(kind='bar', stacked=True, ax=self.ax)
+        except Exception as e:
+            QMessageBox.critical(self, "Error", f"An error occurred: {e}")
 
-        elif self.selected_field in ['Job_classification', 'Grade', 'FactoryCode', 'ManageLevel', 'WorkQualifications1',
-                                     'WorkQualifications2', 'WorkQualifications3', 'WorkQualifications4', 'WorkQualifications5',
-                                     'CurrentProjectRole', 'WorkPlace', 'Education', 'School', 'Department', 'Dependents', 
-                                     'BelongingDepartment', 'MaritalStatus', 'AgeLevel']:
-            status_count = df_selected.groupby([self.selected_field, 'PerStatus']).size().unstack(fill_value=0)
-            status_percent = status_count.div(status_count.sum(axis=1), axis=0) * 100
-            status_percent.plot(kind='bar', stacked=True, ax=self.ax)
+    def plot_sex(self, df):
+        status_sex_count = df.groupby(['sex', 'PerStatus']).size().unstack(fill_value=0)
+        status_sex_percent = status_sex_count.div(status_sex_count.sum(axis=1), axis=0) * 100
+        status_sex_percent.plot(kind='bar', stacked=True, ax=self.ax)
+        self.ax.set_xticks([0, 1])
+        self.ax.set_xticklabels(['Female', 'Male'])
 
-        elif self.selected_field in ['ProjectHours', 'ProjectTotal', 'ProportionOfSpecialProject', 'TrainingHoursA',
-                                     'TrainingHoursB', 'TotalProduction', 'NumberOfHonors', 'PromotedSpeed', 'Leave3A',
-                                     'LeaveYearA', 'Leave3B', 'LeaveYearB', 'BusinessTripA', 'BusinessTripB', 
-                                     'BusinessTripConcentration', 'AnnualPerformanceGradeA', 'AnnualPerformanceGradeB', 
-                                     'AnnualPerformanceGradeC', 'SeniorityA', 'SeniorityB', 'SeniorityC']:
-            df_selected[f'{self.selected_field}_bin'] = pd.cut(df_selected[self.selected_field], bins=5)
-            group_col = f'{self.selected_field}_bin'
-            status_count = df_selected.groupby([group_col, 'PerStatus']).size().unstack(fill_value=0)
-            status_percent = status_count.div(status_count.sum(axis=1), axis=0) * 100
-            status_percent.plot(kind='bar', stacked=True, ax=self.ax)
+    def plot_year(self, df):
+        df = df[df['year'].isin([2014, 2015, 2016, 2017])]
+        status_year_count = df.groupby(['year', 'PerStatus']).size().unstack(fill_value=0)
+        status_year_percent = status_year_count.div(status_year_count.sum(axis=1), axis=0) * 100
+        status_year_percent.plot(kind='bar', stacked=True, ax=self.ax)
 
-        elif self.selected_field == 'WhetherPromoted':
-            status_count = df_selected.groupby(['WhetherPromoted', 'PerStatus']).size().unstack(fill_value=0)
-            status_percent = status_count.div(status_count.sum(axis=1), axis=0) * 100
-            status_percent.plot(kind='bar', stacked=True, ax=self.ax)
+    def plot_categorical(self, df, column, xticks=None):
+        status_count = df.groupby([column, 'PerStatus']).size().unstack(fill_value=0)
+        status_percent = status_count.div(status_count.sum(axis=1), axis=0) * 100
+        status_percent.plot(kind='bar', stacked=True, ax=self.ax)
+        if xticks:
+            self.ax.set_xticks(range(len(xticks)))
+            self.ax.set_xticklabels(xticks)
 
-        else:
-            QMessageBox.warning(self, "Error", f"Unexpected field: {self.selected_field}")
-            return
-
-        self.ax.set_title(f'The relationship between resignation and {self.selected_field}')
-        self.ax.set_xlabel(self.selected_field)
-        self.ax.set_ylabel('Percentage of people (%)')
-        self.ax.legend(title='whether to resign', labels=['staying', 'having resigned'])
-        self.ax.grid(axis='y')
-
-        self.canvas.draw()
+    def plot_continuous(self, df, column, bins):
+        df[f'{column}_bin'] = pd.cut(df[column], bins=bins)
+        group_col = f'{column}_bin'
+        status_count = df.groupby([group_col, 'PerStatus']).size().unstack(fill_value=0)
+        status_percent = status_count.div(status_count.sum(axis=1), axis=0) * 100
+        status_percent.plot(kind='bar', stacked=True, ax=self.ax)
 
     def go_to_previous_page(self):
         from nextpage import NextPageWindow
@@ -127,16 +133,14 @@ class VisualDrawingWindow(QMainWindow, Ui_VisualDrawingWindow):
             self.last_checked_checkbox = sender_checkbox
 
     def create_drawing(self):
-        selected_checkboxes = [
-            checkbox for checkbox in self.findChildren(QCheckBox) if checkbox.isChecked()
-        ]
+        selected_checkboxes = [checkbox for checkbox in self.findChildren(QCheckBox) if checkbox.isChecked()]
 
         if len(selected_checkboxes) != 1:
             QMessageBox.warning(self, "Error", "請選擇且只能選擇一個選項")
             return
 
-        selected_field = selected_checkboxes[0].objectName()  # Get the objectName of the selected checkbox
-        print("Selected Field in create_drawing:", selected_field)  # Check the value of selected_field
+        selected_field = selected_checkboxes[0].objectName()
+        print("Selected Field in create_drawing:", selected_field)
 
         self.drawing_answer_page = DrawingAnswerWindow(selected_field)
         self.drawing_answer_page.show()
