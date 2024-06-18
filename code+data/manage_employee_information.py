@@ -110,6 +110,15 @@ class ManageEmployeeInformationWindow(QMainWindow, Ui_ManageEmployeeInformationW
                 if not employee:
                     self.success.setText("找不到該員工")
                     return
+                data = self.get_employee_data()  # 獲取用戶輸入的員工數據
+                column_names = [desc[0] for desc in cursor.description]
+                
+                # 核對用戶輸入的部分，確認是否與資料庫中的數據一致
+                for key, value in data.items():
+                    db_value = employee[column_names.index(key)]
+                    if value and str(value) != str(db_value):
+                        self.success.setText("輸入資料和資料庫內資料不符，刪除失敗")
+                        return
                 
                 cursor.execute("DELETE FROM PredictionEmployee WHERE PerNo = ?", (PerNo,))
                 self.success.setText("已刪除成功")
