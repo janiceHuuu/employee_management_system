@@ -8,6 +8,7 @@ from employee_turnover_forecast import EmployeeTurnoverForecastWindow
 from visual_drawing import VisualDrawingWindow
 #from search_answer import SearchAnswerWindow
 from drawing_answer import DrawingAnswerWindow
+from PyQt5.QtGui import QIcon
 
 
 if __name__ == "__main__":
@@ -15,17 +16,23 @@ if __name__ == "__main__":
 
     # 創建並顯示登錄界面
     login_window = LoginWindow()
+    login_window.setWindowIcon(QIcon('icon/azvtu-m979f-001.ico'))
     login_window.show()
 
 
     # 創建其他窗口實例，但初始時不顯示
     next_page_window = NextPageWindow()
+    next_page_window.setWindowIcon(QIcon('icon/azvtu-m979f-001.ico'))
     manage_employee_window = ManageEmployeeInformationWindow()
+    manage_employee_window.setWindowIcon(QIcon('icon/azvtu-m979f-001.ico'))
     employee_turnover_forecast_window = EmployeeTurnoverForecastWindow()
+    employee_turnover_forecast_window.setWindowIcon(QIcon('icon/azvtu-m979f-001.ico'))
     #search_employee_information_window = SearchEmployeeInformationWindow()
     visual_drawing_window = VisualDrawingWindow()
+    visual_drawing_window.setWindowIcon(QIcon('icon/azvtu-m979f-001.ico'))
     #search_answer_window = SearchAnswerWindow([])
     drawing_answer_window = DrawingAnswerWindow([])
+    drawing_answer_window.setWindowIcon(QIcon('icon/azvtu-m979f-001.ico'))
     
     # 登錄窗口中的信號連接到主界面和其他界面的切換功能
     #print(type(login_window.login_success))
