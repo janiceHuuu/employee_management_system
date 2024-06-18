@@ -14,7 +14,7 @@ import os
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(572, 475)
+        self.setFixedSize(572, 475)
         MainWindow.setLayoutDirection(QtCore.Qt.RightToLeft)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")

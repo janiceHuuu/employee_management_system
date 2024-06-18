@@ -14,7 +14,7 @@ import os
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(918, 651)
+        self.setFixedSize(918, 651)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.previous_page = QtWidgets.QPushButton(self.centralwidget)
