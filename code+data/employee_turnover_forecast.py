@@ -146,7 +146,10 @@ class EmployeeTurnoverForecastWindow(QMainWindow, Ui_EmployeeTurnoverForecastWin
 
         if query.exec():
             found = False
+            i = 0
             while query.next():
+                i += 1
+                print(i)
                 found = True
                 x = [query.value(3), query.value(20), query.value(24), query.value(28),
                      query.value(29), query.value(35), query.value(37), query.value(38),
@@ -165,6 +168,7 @@ class EmployeeTurnoverForecastWindow(QMainWindow, Ui_EmployeeTurnoverForecastWin
                 model = joblib.load(model_path)
                 y_pre = model.predict(df_x)
                 
+
                 if y_pre[0] == 0:
                     text = f"編號: {perNo} 員工尚無離職可能性"
                     title = '預測結果'
@@ -182,9 +186,12 @@ class EmployeeTurnoverForecastWindow(QMainWindow, Ui_EmployeeTurnoverForecastWin
                     button = 'YesNo'
                     r = self.messagebox(text, title, iconSet, img_icon, button)
                     if r == QMessageBox.Yes:
+                        print("用戶選擇 Yes，發送約談信")
                         self.emailSender.to = 'f64126147@gs.ncku.edu.tw'
                         self.emailSender.body = self.textEdit.toPlainText()
                         self.emailSender.main()
+                    else:
+                        print("用戶選擇 No")
                         pass
             
             if not found:
