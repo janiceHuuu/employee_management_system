@@ -19,12 +19,12 @@ class Ui_MainWindow(object):
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(0, 0, 631, 511))
+        self.label_2.setGeometry(QtCore.QRect(0, 0, 572, 475))
         self.label_2.setStyleSheet("background-color:#DCF1FE;")
         self.label_2.setText("")
         self.label_2.setObjectName("label_2")
         self.layoutWidget = QtWidgets.QWidget(self.centralwidget)
-        self.layoutWidget.setGeometry(QtCore.QRect(0, 0, 571, 431))
+        self.layoutWidget.setGeometry(QtCore.QRect(0, 0, 572, 475))
         self.layoutWidget.setObjectName("layoutWidget")
         self.gridLayout_2 = QtWidgets.QGridLayout(self.layoutWidget)
         self.gridLayout_2.setContentsMargins(0, 0, 0, 0)
@@ -39,9 +39,17 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setFamily("微軟正黑體")
         font.setPointSize(14)
-        self.label.setFont(font)
-        self.label.setLayoutDirection(QtCore.Qt.RightToLeft)
+        #self.label.setFont(font)
+        #self.label.setLayoutDirection(QtCore.Qt.RightToLeft)
         self.label.setObjectName("label")
+        self.label.setStyleSheet('''
+            font-size:28px;
+            font-family:cursive;
+            color:black;
+            font-weight:bold;
+            font-style:normal;
+        ''')
+        self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.gridLayout.addWidget(self.label, 0, 0, 1, 1)
         self.visual_drawing = QtWidgets.QPushButton(self.layoutWidget)
         font = QtGui.QFont()
@@ -110,7 +118,7 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.label.setText(_translate("MainWindow", "      功能選擇"))
+        self.label.setText(_translate("MainWindow", "功能選擇"))
         self.visual_drawing.setText(_translate("MainWindow", "視覺化繪圖"))
         self.employee_turnover_forecast.setText(_translate("MainWindow", "員工離職預測"))
         self.manage_employee_information.setText(_translate("MainWindow", "管理員工資料"))
