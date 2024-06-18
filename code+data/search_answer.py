@@ -3,6 +3,7 @@ from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel, QScrollArea, QWidget, QVBoxLayout, QHBoxLayout, QGridLayout, QPushButton
 from search_answer_ui import Ui_MainWindow as Ui_SearchAnswerWindow
 import sqlite3
+from PyQt5.QtGui import QIcon
 
 class SearchAnswerWindow(QMainWindow, Ui_SearchAnswerWindow):
     def __init__(self, results):
@@ -66,5 +67,6 @@ class SearchAnswerWindow(QMainWindow, Ui_SearchAnswerWindow):
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     window = SearchAnswerWindow([])
+    window.setWindowIcon(QIcon('icon/azvtu-m979f-001.ico'))
     window.show()
     sys.exit(app.exec_())
