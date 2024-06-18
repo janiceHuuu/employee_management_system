@@ -2,6 +2,8 @@ import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox, QLineEdit
 from manage_employee_information_ui import Ui_MainWindow as Ui_ManageEmployeeInformationWindow
 import sqlite3
+import logging
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
 class ManageEmployeeInformationWindow(QMainWindow, Ui_ManageEmployeeInformationWindow):
 
@@ -79,42 +81,35 @@ class ManageEmployeeInformationWindow(QMainWindow, Ui_ManageEmployeeInformationW
             self.success.setText("因有欄目未被填寫或員工在職狀態、編號異常\n，故加入資料庫失敗，請重新填寫")
             return
         
-        # 檢查 PerStatus 是否為 0
-        #if data['PerStatus'] == "0":
-         #   self.success.setText("因有欄目未被填寫或員工在職狀態、編號異常\n，故加入資料庫失敗，請重新填寫")
-          #  return
-        
-        conn = sqlite3.connect('employee_management.db')
-        cursor = conn.cursor()
-        
-        # 檢查 PerNo 是否存在於資料庫
-        cursor.execute('SELECT PerNo FROM PredictionEmployee WHERE PerNo = ?', (data['PerNo'],))
-        if cursor.fetchone() is not None:
-            self.success.setText("因有欄目未被填寫或員工在職狀態、編號異常\n，故加入資料庫失敗，請重新填寫")
-            conn.close()
-            return
-    
         try:
-            cursor.execute('''
-            INSERT INTO PredictionEmployee VALUES (
-                :yyyy, :PerNo, :最新離職預測, :sex, :工作分類, :職等, :廠區代碼,
-                :管理層級, :歸屬部門, :工作資歷1, :工作資歷2,
-                :工作資歷3, :工作資歷4, :工作資歷5, :是否升遷,
-                :升遷速度, :專案時數, :專案總數, :當前專案角色, :特殊專案佔比,
-                :工作地點, :訓練時數A, :訓練時數B, :訓練時數C, :生產總額, :榮譽數,
-                :通勤成本, :近三月請假數A, :近三月請假數B, :近一年請假數A, :近一年請假數B, :出差數A, :出差數B,
-                :出差集中度, :年度績效等級A, :年度績效等級B, :年度績效等級C,
-                :年齡層級, :婚姻狀況, :眷屬量, :年資層級A, :年資層級B, :年資層級C, :任職前工作平均年數,
-                :最高學歷, :畢業學校類別, :畢業科系類別
-            )''', data)
-            conn.commit()
-            self.success.setText("已新增成功")
-            self.clear_text_fields()
+            with sqlite3.connect('employee_management.db', timeout=10) as conn:
+                cursor = conn.cursor()
+                
+                # 檢查 PerNo 是否存在於資料庫
+                cursor.execute('SELECT PerNo FROM PredictionEmployee WHERE PerNo = ?', (data['PerNo'],))
+                if cursor.fetchone() is not None:
+                    self.success.setText("因有欄目未被填寫或員工在職狀態、編號異常\n，故加入資料庫失敗，請重新填寫")
+                    return
             
+                cursor.execute('''
+                INSERT INTO PredictionEmployee VALUES (
+                    :yyyy, :PerNo, :最新離職預測, :sex, :工作分類, :職等, :廠區代碼,
+                    :管理層級, :歸屬部門, :工作資歷1, :工作資歷2,
+                    :工作資歷3, :工作資歷4, :工作資歷5, :是否升遷,
+                    :升遷速度, :專案時數, :專案總數, :當前專案角色, :特殊專案佔比,
+                    :工作地點, :訓練時數A, :訓練時數B, :訓練時數C, :生產總額, :榮譽數,
+                    :通勤成本, :近三月請假數A, :近三月請假數B, :近一年請假數A, :近一年請假數B, :出差數A, :出差數B,
+                    :出差集中度, :年度績效等級A, :年度績效等級B, :年度績效等級C,
+                    :年齡層級, :婚姻狀況, :眷屬量, :年資層級A, :年資層級B, :年資層級C, :任職前工作平均年數,
+                    :最高學歷, :畢業學校類別, :畢業科系類別
+                )''', data)
+                self.success.setText("已新增成功")
+                self.clear_text_fields()
+                
         except sqlite3.IntegrityError:
             self.success.setText("因有欄目未被填寫或員工在職狀態、編號異常\n，故加入資料庫失敗，請重新填寫")
-        finally:
-            conn.close()
+        except sqlite3.OperationalError as e:
+            self.success.setText(f"資料庫錯誤: {str(e)}")
 
 
     def update_employee(self):
@@ -133,52 +128,49 @@ class ManageEmployeeInformationWindow(QMainWindow, Ui_ManageEmployeeInformationW
         query = f"UPDATE PredictionEmployee SET {set_clause} WHERE PerNo = :PerNo"
         data["PerNo"] = PerNo
         
-        conn = sqlite3.connect('employee_management.db')
-        cursor = conn.cursor()
-        cursor.execute(query, data)
-        conn.commit()
-        conn.close()
+        try:
+            with sqlite3.connect('employee_management.db', timeout=10) as conn:
+                cursor = conn.cursor()
+                cursor.execute(query, data)
+                self.success.setText("已更新成功")
+                
+        except sqlite3.OperationalError as e:
+            self.success.setText(f"資料庫錯誤: {str(e)}")
         
-        self.success.setText("已更新成功")
 
     def delete_employee(self):
-        PerNo = self.PerNo.text()  # 從UI得到PerNo
+        PerNo = self.PerNo.text()  # 從 UI 得到 PerNo
         
-        if not PerNo:  # 檢查PerNo是否為填寫
-            self.success.setText("請輸入PerNo以進行刪除")  # 如果為空，提示輸入PerNo
-            return  # 退出方法，不继续执行
+        if not PerNo:  # 檢查 PerNo 是否填寫
+            self.success.setText("請輸入 PerNo 以進行刪除")
+            return
         
-        conn = sqlite3.connect('employee_management.db')  # 連接資料庫
-        cursor = conn.cursor()  
-        
-        cursor.execute("SELECT * FROM PredictionEmployee WHERE PerNo = ?", (PerNo,))  # 用PerNo查詢員工
-        employee = cursor.fetchone()  # 獲得查詢到的資料
-        
-        if not employee:  # 沒找到員工的情況
-            self.success.setText("找不到該員工")  
-            conn.close() 
-            return  
-        
-        data = self.get_employee_data()  # 获取用户输入的员工数据，返回一个字典
-        column_names = [desc[0] for desc in cursor.description]  
-        
-        
-        # 核對有輸入的部分，是否資料相同
-        for key, value in data.items():
-            db_value = employee[column_names.index(key)]  # 從資料庫獲得資料
-            if value and str(value) != str(db_value):  # 比較時轉換為相同型態的資料
-                self.success.setText("輸入資料和資料庫內資料不符，刪除失敗")
-                conn.close()  
-                return 
-    
-        cursor.execute("DELETE FROM PredictionEmployee WHERE PerNo = ?", (PerNo,))  # 如果相同就刪除
-        conn.commit()  
-        self.success.setText("已刪除成功") 
-        
-        conn.close()  
-
-
-
+        try:
+            with sqlite3.connect('employee_management.db', timeout=10) as conn:
+                cursor = conn.cursor()
+                
+                cursor.execute("SELECT * FROM PredictionEmployee WHERE PerNo = ?", (PerNo,))
+                employee = cursor.fetchone()
+                
+                if not employee:
+                    self.success.setText("找不到該員工")
+                    return
+                
+                data = self.get_employee_data()  # 獲取用戶輸入的員工數據
+                column_names = [desc[0] for desc in cursor.description]
+                
+                # 核對用戶輸入的部分，確認是否與資料庫中的數據一致
+                for key, value in data.items():
+                    db_value = employee[column_names.index(key)]
+                    if value and str(value) != str(db_value):
+                        self.success.setText("輸入資料和資料庫內資料不符，刪除失敗")
+                        return
+                
+                cursor.execute("DELETE FROM PredictionEmployee WHERE PerNo = ?", (PerNo,))
+                self.success.setText("已刪除成功")
+                
+        except sqlite3.OperationalError as e:
+            self.success.setText(f"資料庫錯誤: {str(e)}")
 
     def go_to_previous_page(self):
         from nextpage import NextPageWindow
@@ -191,3 +183,4 @@ if __name__ == "__main__":
     window = ManageEmployeeInformationWindow()
     window.show()
     sys.exit(app.exec_())
+                                           
