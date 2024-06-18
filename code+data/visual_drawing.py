@@ -156,9 +156,9 @@ class VisualDrawingWindow(QMainWindow, Ui_VisualDrawingWindow):
         self.close()
 
     def go_to_previous_page(self):
-        from nextpage import DrawingAnswerWindow
-        self.next_page = DrawingAnswerWindow()
-        self.next_page.show()
+        from visual_drawing import VisualDrawingWindow
+        self.visual_drawing_page = VisualDrawingWindow()
+        self.visual_drawing_page.show()
         self.close()
         
 if __name__ == "__main__":
