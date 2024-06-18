@@ -2,7 +2,8 @@ import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow
 from PyQt5.QtCore import pyqtSignal
 from login_ui import Ui_MainWindow as Ui_LoginWindow
-from nextpage import NextPageWindow  
+from nextpage import NextPageWindow
+from PyQt5.QtGui import QIcon
 
 class LoginWindow(QMainWindow, Ui_LoginWindow):
     login_success = pyqtSignal()  # 定義一個信號
@@ -32,5 +33,6 @@ class LoginWindow(QMainWindow, Ui_LoginWindow):
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     window = LoginWindow()
+    window.setWindowIcon(QIcon('icon/azvtu-m979f-001.ico'))
     window.show()
     sys.exit(app.exec_())
