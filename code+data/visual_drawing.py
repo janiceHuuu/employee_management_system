@@ -2,7 +2,7 @@ import sys
 import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
-from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox, QCheckBox, QVBoxLayout, QHBoxLayout, QWidget, QPushButton
+from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox, QCheckBox, QVBoxLayout, QHBoxLayout, QWidget, QPushButton, QScrollArea
 from PyQt5.QtCore import Qt
 from visual_drawing_ui import Ui_MainWindow as Ui_VisualDrawingWindow
 
@@ -27,8 +27,17 @@ class DrawingAnswerWindow(QMainWindow):
         self.top_layout.addStretch()
 
         self.main_layout.addLayout(self.top_layout)
-        self.canvas = FigureCanvas(plt.Figure())
-        self.main_layout.addWidget(self.canvas)
+
+        self.scroll_area = QScrollArea(self)
+        self.scroll_area.setWidgetResizable(True)
+        self.scroll_area_widget = QWidget()
+        self.scroll_area.setWidget(self.scroll_area_widget)
+
+        self.scroll_layout = QVBoxLayout(self.scroll_area_widget)
+        self.canvas = FigureCanvas(plt.Figure(figsize=(8, 6)))
+        self.scroll_layout.addWidget(self.canvas)
+
+        self.main_layout.addWidget(self.scroll_area)
         self.ax = self.canvas.figure.add_subplot(111)
 
     def plot_relationship(self):
@@ -108,9 +117,9 @@ class DrawingAnswerWindow(QMainWindow):
         status_percent.plot(kind='bar', stacked=True, ax=self.ax)
 
     def go_to_previous_page(self):
-        from nextpage import NextPageWindow
-        self.next_page = NextPageWindow()
-        self.next_page.show()
+        from visual_drawing import VisualDrawingWindow
+        self.visual_drawing_page = VisualDrawingWindow()
+        self.visual_drawing_page.show()
         self.close()
 
 class VisualDrawingWindow(QMainWindow, Ui_VisualDrawingWindow):
@@ -151,7 +160,7 @@ class VisualDrawingWindow(QMainWindow, Ui_VisualDrawingWindow):
         self.next_page = NextPageWindow()
         self.next_page.show()
         self.close()
-
+        
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     window = VisualDrawingWindow()
