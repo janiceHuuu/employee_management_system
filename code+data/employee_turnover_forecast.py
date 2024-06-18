@@ -182,9 +182,9 @@ class EmployeeTurnoverForecastWindow(QMainWindow, Ui_EmployeeTurnoverForecastWin
                     button = 'YesNo'
                     r = self.messagebox(text, title, iconSet, img_icon, button)
                     if r == QMessageBox.Yes:
-                        # self.emailSender.to = ''
-                        # self.emailSender.body = self.textEdit.toPlainText()
-                        # self.emailSender.main()
+                        self.emailSender.to = 'f64126147@gs.ncku.edu.tw'
+                        self.emailSender.body = self.textEdit.toPlainText()
+                        self.emailSender.main()
                         pass
             
             if not found:
@@ -202,7 +202,7 @@ class EmployeeTurnoverForecastWindow(QMainWindow, Ui_EmployeeTurnoverForecastWin
 
     # 選擇路徑匯出csv檔(actionExport)
     def dataExport(self):
-        folderPath = QFileDialog.getExistingDirectory()
+        folderPath = QFileDialog.getExistingDirectory(directory = 'file')
         data_path = os.path.join(folderPath, 'Prediction.csv')
         self.csvExport(data_path)
         
