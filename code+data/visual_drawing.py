@@ -62,6 +62,8 @@ class DrawingAnswerWindow(QMainWindow):
                 self.plot_year(df_selected)
             elif self.selected_field == 'CommutingCosts':
                 self.plot_continuous(df_selected, 'CommutingCosts', bins=5)
+            elif self.selected_field == 'TrainingHoursC':
+                self.plot_continuous(df_selected, 'TrainingHoursC', bins=5)
             elif self.selected_field in ['Job_classification', 'Grade', 'FactoryCode', 'ManageLevel', 'WorkQualifications1',
                                          'WorkQualifications2', 'WorkQualifications3', 'WorkQualifications4', 'WorkQualifications5',
                                          'CurrentProjectRole', 'WorkPlace', 'Education', 'School', 'Department', 'Dependents', 
