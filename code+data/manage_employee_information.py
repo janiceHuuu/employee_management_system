@@ -85,6 +85,13 @@ class ManageEmployeeInformationWindow(QMainWindow, Ui_ManageEmployeeInformationW
             self.connect_database()
             with self.conn:
                 cursor = self.conn.cursor()
+                
+                # 檢查資料庫中是否存在相同的 PerNo
+                cursor.execute("SELECT * FROM PredictionEmployee WHERE PerNo = ?", (PerNo,))
+                if cursor.fetchone() is None:
+                    self.success.setText("找不到該員工")
+                    return
+                
                 cursor.execute(query, data)
                 self.success.setText("已更新成功")
                 self.clear_text_fields()
@@ -93,6 +100,7 @@ class ManageEmployeeInformationWindow(QMainWindow, Ui_ManageEmployeeInformationW
             self.success.setText(f"資料庫錯誤: {str(e)}")
         finally:
             self.disconnect_database()
+
     
     def delete_employee(self):
         PerNo = self.PerNo.text()
