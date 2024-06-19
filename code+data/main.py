@@ -37,7 +37,6 @@ if __name__ == "__main__":
     # 登錄窗口中的信號連接到主界面和其他界面的切換功能
     #print(type(login_window.login_success))
     login_window.login_success.connect(lambda: next_page_window.show())
-    #login_window.login_success.clicked.connect(next_page_window.show)
 
     # nextpage 界面中的信號連接到其他界面的切換功能
     #print(type( next_page_window.manage_employee_information))
@@ -45,22 +44,12 @@ if __name__ == "__main__":
     next_page_window.manage_employee_information.clicked.connect(lambda: manage_employee_window.show)
     next_page_window.employee_turnover_forecast.clicked.connect(lambda: employee_turnover_forecast_window.show)
     next_page_window.visual_drawing.clicked.connect(lambda: visual_drawing_window.show)
-    #next_page_window.search_employee_information.clicked.connect(lambda: search_employee_information_window.show)
-
-    # search_employee_information_window 界面中的信號連接到 nextpage 界面的切換功能
-    #search_employee_information_window.previous_page.clicked.connect(lambda: next_page_window.show)
     
     # manage_employee_information 界面中的信號連接到 nextpage 界面的切換功能
     manage_employee_window.previous_page.clicked.connect(lambda: next_page_window.show)
     
     # manage_employee_information 界面中的信號連接到 nextpage 界面的切換功能
     visual_drawing_window.previous_page.clicked.connect(lambda: next_page_window.show)
-    
-    # search_employee_information 界面中的信號連接到 search_answer 界面的切換功能
-    #search_employee_information_window.search.clicked.connect(lambda: search_answer_window.show)
-
-    # search_answer 界面中的信號連接到 search_employee_information 界面的切換功能
-    #search_answer_window.previous_page.clicked.connect(lambda: search_employee_information_window.show)
     
     # visual_drawing 界面中的信號連接到 drawing_answer 界面的切換功能
     visual_drawing_window.drawing.clicked.connect(lambda: drawing_answer_window.show)

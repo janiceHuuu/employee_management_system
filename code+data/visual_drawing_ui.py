@@ -20,32 +20,33 @@ class Ui_MainWindow(object):
         self.previous_page = QtWidgets.QPushButton(self.centralwidget)
         self.previous_page.setGeometry(QtCore.QRect(10, 10, 113, 32))
         self.previous_page.setStyleSheet('''
-            QPushBotton{
-                font-family:微軟正黑體;
-                font-size:10px;
+            QPushButton{
+                font-family:Microsoft JhengHei;
+                font-size:15px;
                 background-color: #FFFFFF;
-                border: 2px aolid #4CAF50;
+                border-style: outset;
+                border: 2px solid #4CAF50;
                 border-radius: 10px;
                 padding: 5px;}
-            QPushBotton:hover{
+            QPushButton:hover{
                 background-color: lightblue;}
-            QPushBotton:pressed{
+            QPushButton:pressed{
                 background-color: darkblue;}
         ''')
         self.previous_page.setObjectName("previous_page")
         self.drawing = QtWidgets.QPushButton(self.centralwidget)
         self.drawing.setGeometry(QtCore.QRect(630, 570, 113, 32))
         self.drawing.setStyleSheet('''
-            QPushBotton{
-                font-family:微軟正黑體;
-                font-size:10px;
+            QPushButton{
+                font-family:Microsoft JhengHei;
+                font-size:15px;
                 background-color: #FFFFFF;
-                border: 2px aolid #4CAF50;
+                border: 2px solid #4CAF50;
                 border-radius: 10px;
                 padding: 5px;}
-            QPushBotton:hover{
+            QPushButton:hover{
                 background-color: lightblue;}
-            QPushBotton:pressed{
+            QPushButton:pressed{
                 background-color: darkblue;}
         ''')
         self.drawing.setObjectName("drawing")

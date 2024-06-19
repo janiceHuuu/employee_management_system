@@ -63,16 +63,17 @@ class Ui_MainWindow(object):
         self.loginButton = QtWidgets.QPushButton(self.layoutWidget)
         self.loginButton.setMinimumSize(QtCore.QSize(0, 32))
         self.loginButton.setStyleSheet('''
-            QPushBotton{
-                font-family:微軟正黑體;
-                font-size:10px;
+            QPushButton{
+                font-family:Microsoft JhengHei;
+                font-size:15px;
                 background-color: #FFFFFF;
-                border: 2px aolid #4CAF50;
+                border-style: outset;
+                border: 2px solid #4CAF50;
                 border-radius: 10px;
                 padding: 5px;}
-            QPushBotton:hover{
+            QPushButton:hover{
                 background-color: lightblue;}
-            QPushBotton:pressed{
+            QPushButton:pressed{
                 background-color: darkblue;}
         ''')
         font = QtGui.QFont()

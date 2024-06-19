@@ -20,16 +20,16 @@ class Ui_MainWindow(object):
         self.previous_page = QtWidgets.QPushButton(self.centralwidget)
         self.previous_page.setGeometry(QtCore.QRect(10, 20, 113, 32))
         self.previous_page.setStyleSheet('''
-            QPushBotton{
+            QPushButton{
                 font-family:微軟正黑體;
-                font-size:10px;
+                font-size:15px;
                 background-color: #FFFFFF;
-                border: 2px aolid #4CAF50;
+                border: 2px solid #4CAF50;
                 border-radius: 10px;
                 padding: 5px;}
-            QPushBotton:hover{
+            QPushButton:hover{
                 background-color: lightblue;}
-            QPushBotton:pressed{
+            QPushButton:pressed{
                 background-color: darkblue;}
         ''')
         self.layoutWidget = QtWidgets.QWidget(self.centralwidget)
@@ -699,49 +699,52 @@ class Ui_MainWindow(object):
         self.delet_employee_information = QtWidgets.QPushButton(self.layoutWidget_2)
         self.delet_employee_information.setObjectName("delet_employee_information")
         self.delet_employee_information.setStyleSheet('''
-            QPushBotton{
+            QPushButton{
                 font-family:"微軟正黑體";
-                font-size:10px;
+                font-size:15px;
                 background-color: #FFFFFF;
-                border: 2px aolid #4CAF50;
+                border-style: outset;
+                border: 2px solid #4CAF50;
                 border-radius: 10px;
                 padding: 5px;
             }
-            QPushBotton:hover{
+            QPushButton:hover{
                 background-color: lightblue;}
-            QPushBotton:pressed{
+            QPushButton:pressed{
                 background-color: darkblue;}
         ''')
         
         self.gridLayout_2.addWidget(self.delet_employee_information, 0, 0, 1, 1)
         self.update_employee_information = QtWidgets.QPushButton(self.layoutWidget_2)
         self.update_employee_information.setStyleSheet('''
-            QPushBotton{
+            QPushButton{
                 font-family:微軟正黑體;
-                font-size:10px;
+                font-size:15px;
                 background-color: #FFFFFF;
-                border: 2px aolid #4CAF50;
+                border-style: outset;
+                border: 2px solid #4CAF50;
                 border-radius: 10px;
                 padding: 5px;}
-            QPushBotton:hover{
+            QPushButton:hover{
                 background-color: lightblue;}
-            QPushBotton:pressed{
+            QPushButton:pressed{
                 background-color: darkblue;}
         ''')
         self.update_employee_information.setObjectName("update_employee_information")
         self.gridLayout_2.addWidget(self.update_employee_information, 0, 1, 1, 1)
         self.add_employee_information = QtWidgets.QPushButton(self.layoutWidget_2)
         self.add_employee_information.setStyleSheet('''
-            QPushBotton{
+            QPushButton{
                 font-family:微軟正黑體;
-                font-size:10px;
+                font-size:15px;
                 background-color: #FFFFFF;
-                border: 2px aolid #4CAF50;
+                border-style: outset;
+                border: 2px solid #4CAF50;
                 border-radius: 10px;
                 padding: 5px;}
-            QPushBotton:hover{
+            QPushButton:hover{
                 background-color: lightblue;}
-            QPushBotton:pressed{
+            QPushButton:pressed{
                 background-color: darkblue;}
         ''')
         self.add_employee_information.setObjectName("add_employee_information")

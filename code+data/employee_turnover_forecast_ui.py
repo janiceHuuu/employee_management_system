@@ -34,9 +34,35 @@ class Ui_MainWindow(object):
         self.tab.setObjectName("tab")
         self.tableView = QtWidgets.QTableView(self.tab)
         self.tableView.setGeometry(QtCore.QRect(-5, 51, 831, 511))
+        self.tableView.setStyleSheet('''
+             QTableView {
+                    selection-background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 0.8,
+                    stop: 0 #000079, stop: 1 white);  
+                    alternate-background-color: #F0F8FF;
+                    
+            }
+            QHeaderView::section { 
+                    background-color: #ACD6FF; 
+                    color: black; }
+        ''')
+        self.tableView.verticalScrollBar().setStyleSheet("QScrollBar:vertical { background: #FFEEDD; }")
         self.tableView.setObjectName("tableView")
         self.pushButton = QtWidgets.QPushButton(self.tab)
         self.pushButton.setGeometry(QtCore.QRect(0, 10, 101, 31))
+        self.pushButton.setStyleSheet('''
+            QPushButton{
+                font-family:Microsoft JhengHei;
+                font-size:15px;
+                background-color: #FFFFFF;
+                border-style: outset;
+                border: 2px solid #4CAF50;
+                border-radius: 10px;
+                padding: 5px;}
+            QPushButton:hover{
+                background-color: lightblue;}
+            QPushButton:pressed{
+                background-color: darkblue;}
+        ''')
         self.pushButton.setObjectName("pushButton")
         self.tabWidget.addTab(self.tab, "")
         self.tab_3 = QtWidgets.QWidget()
@@ -60,6 +86,20 @@ class Ui_MainWindow(object):
         self.horizontalLayout.addWidget(self.spinBox)
         self.pushButton_predict = QtWidgets.QPushButton(self.tab_3)
         self.pushButton_predict.setGeometry(QtCore.QRect(710, 50, 111, 41))
+        self.pushButton_predict.setStyleSheet('''
+            QPushButton{
+                font-family:Microsoft JhengHei;
+                font-size:15px;
+                background-color: #FFFFFF;
+                border-style: outset;
+                border: 2px solid #4CAF50;
+                border-radius: 10px;
+                padding: 5px;}
+            QPushButton:hover{
+                background-color: lightblue;}
+            QPushButton:pressed{
+                background-color: darkblue;}
+        ''')
         self.pushButton_predict.setObjectName("pushButton_predict")
         self.verticalLayoutWidget = QtWidgets.QWidget(self.tab_3)
         self.verticalLayoutWidget.setGeometry(QtCore.QRect(10, 130, 801, 411))

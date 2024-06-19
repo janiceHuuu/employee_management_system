@@ -52,49 +52,52 @@ class Ui_MainWindow(object):
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.gridLayout.addWidget(self.label, 0, 0, 1, 1)
         self.visual_drawing = QtWidgets.QPushButton(self.layoutWidget)
-        self.visual_drawing.setStyleSheet("""
-            QPushBotton{
-                font-family:微軟正黑體;
-                font-size:12px;
+        self.visual_drawing.setStyleSheet('''
+            QPushButton{
+                font-family:Microsoft JhengHei;
+                font-size:15px;
                 background-color: #FFFFFF;
-                border: 2px aolid #4CAF50;
+                border-style: outset;
+                border: 2px solid #4CAF50;
                 border-radius: 10px;
                 padding: 5px;}
-            QPushBotton:hover{
+            QPushButton:hover{
                 background-color: lightblue;}
-            QPushBotton:pressed{
+            QPushButton:pressed{
                 background-color: darkblue;}
-        """)
+        ''')
         self.visual_drawing.setObjectName("visual_drawing")
         self.gridLayout.addWidget(self.visual_drawing, 3, 0, 1, 1)
         self.employee_turnover_forecast = QtWidgets.QPushButton(self.layoutWidget)
         self.employee_turnover_forecast.setStyleSheet("""
-            QPushBotton{
-                font-family:微軟正黑體;
-                font-size:12px;
+            QPushButton{
+                font-family:Microsoft JhengHei;
+                font-size:16px;
                 background-color: #FFFFFF;
-                border: 2px aolid #4CAF50;
+                border-style: outset;
+                border: 2px solid #4CAF50;
                 border-radius: 10px;
                 padding: 5px;}
-            QPushBotton:hover{
+            QPushButton:hover{
                 background-color: lightblue;}
-            QPushBotton:pressed{
+            QPushButton:pressed{
                 background-color: darkblue;}
         """)
         self.employee_turnover_forecast.setObjectName("employee_turnover_forecast")
         self.gridLayout.addWidget(self.employee_turnover_forecast, 2, 0, 1, 1)
         self.manage_employee_information = QtWidgets.QPushButton(self.layoutWidget)
         self.manage_employee_information.setStyleSheet("""
-            QPushBotton{
-                font-family:微軟正黑體;
-                font-size:12px;
+            QPushButton{
+                font-family:Microsoft JhengHei;
+                font-size:15px;
                 background-color: #FFFFFF;
-                border: 2px aolid #4CAF50;
+                border-style: outset;
+                border: 2px solid #4CAF50;
                 border-radius: 10px;
                 padding: 5px;}
-            QPushBotton:hover{
+            QPushButton:hover{
                 background-color: lightblue;}
-            QPushBotton:pressed{
+            QPushButton:pressed{
                 background-color: darkblue;}
         """)
         self.manage_employee_information.setObjectName("manage_employee_information")
