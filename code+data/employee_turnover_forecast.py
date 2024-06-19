@@ -181,7 +181,7 @@ class EmployeeTurnoverForecastWindow(QMainWindow, Ui_EmployeeTurnoverForecastWin
                     r = self.messagebox(text, title, iconSet, img_icon, button)
                     if r == QMessageBox.Yes:
                         print("用戶選擇 Yes，發送約談信")
-                        self.emailSender.to = 'f64126147@gs.ncku.edu.tw'
+                        self.emailSender.to = 'e94106119@gs.ncku.edu.tw'
                         self.emailSender.body = self.textEdit.toPlainText()
                         self.emailSender.main()
                     else:
