@@ -45,7 +45,8 @@ class Ui_MainWindow(object):
                     background-color: #ACD6FF; 
                     color: black; }
         ''')
-        self.tableView.verticalScrollBar().setStyleSheet("QScrollBar:vertical { background: #FFEEDD; }")
+        self.tableView.verticalScrollBar().setStyleSheet("QScrollBar:vertical { background: #FFFFFF; }")
+        self.tableView.horizontalScrollBar().setStyleSheet("QScrollBar:horizontal { background: #FFFFFF; }")
         self.tableView.setObjectName("tableView")
         self.pushButton = QtWidgets.QPushButton(self.tab)
         self.pushButton.setGeometry(QtCore.QRect(0, 10, 101, 31))
