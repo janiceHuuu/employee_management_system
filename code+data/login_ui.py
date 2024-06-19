@@ -40,7 +40,7 @@ class Ui_MainWindow(object):
         self.label.setMinimumSize(QtCore.QSize(0, 16))
         font = QtGui.QFont()
         font.setFamily("微軟正黑體")
-        font.setPointSize(12)
+        font.setPointSize(10)
         self.label.setFont(font)
         self.label.setObjectName("label")
         self.gridLayout.addWidget(self.label, 0, 0, 1, 1)
@@ -52,7 +52,7 @@ class Ui_MainWindow(object):
         self.label_2.setMinimumSize(QtCore.QSize(0, 16))
         font = QtGui.QFont()
         font.setFamily("微軟正黑體")
-        font.setPointSize(12)
+        font.setPointSize(10)
         self.label_2.setFont(font)
         self.label_2.setObjectName("label_2")
         self.gridLayout.addWidget(self.label_2, 1, 0, 1, 1)
@@ -62,9 +62,22 @@ class Ui_MainWindow(object):
         self.gridLayout.addWidget(self.passwordLineEdit, 1, 1, 1, 1)
         self.loginButton = QtWidgets.QPushButton(self.layoutWidget)
         self.loginButton.setMinimumSize(QtCore.QSize(0, 32))
+        self.loginButton.setStyleSheet('''
+            QPushBotton{
+                font-family:微軟正黑體;
+                font-size:10px;
+                background-color: #FFFFFF;
+                border: 2px aolid #4CAF50;
+                border-radius: 10px;
+                padding: 5px;}
+            QPushBotton:hover{
+                background-color: lightblue;}
+            QPushBotton:pressed{
+                background-color: darkblue;}
+        ''')
         font = QtGui.QFont()
         font.setFamily("微軟正黑體")
-        font.setPointSize(12)
+        font.setPointSize(10)
         self.loginButton.setFont(font)
         self.loginButton.setObjectName("loginButton")
         self.gridLayout.addWidget(self.loginButton, 2, 0, 1, 2)
@@ -81,7 +94,8 @@ class Ui_MainWindow(object):
         self.label_7 = QtWidgets.QLabel(self.layoutWidget)
         font = QtGui.QFont()
         font.setFamily("微軟正黑體")
-        font.setPointSize(24)
+        font.setPointSize(13)
+        self.label_7.setAlignment(QtCore.Qt.AlignCenter)
         self.label_7.setFont(font)
         self.label_7.setObjectName("label_7")
         self.gridLayout_3.addWidget(self.label_7, 1, 1, 1, 1)
@@ -147,4 +161,4 @@ class Ui_MainWindow(object):
         self.label.setText(_translate("MainWindow", "帳號："))
         self.label_2.setText(_translate("MainWindow", "密碼："))
         self.loginButton.setText(_translate("MainWindow", "登入"))
-        self.label_7.setText(_translate("MainWindow", "   員工管理系統"))
+        self.label_7.setText(_translate("MainWindow", "員工管理系統"))

@@ -38,7 +38,7 @@ class Ui_MainWindow(object):
         self.label = QtWidgets.QLabel(self.layoutWidget)
         font = QtGui.QFont()
         font.setFamily("微軟正黑體")
-        font.setPointSize(14)
+        font.setPointSize(12)
         #self.label.setFont(font)
         #self.label.setLayoutDirection(QtCore.Qt.RightToLeft)
         self.label.setObjectName("label")
@@ -52,24 +52,51 @@ class Ui_MainWindow(object):
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.gridLayout.addWidget(self.label, 0, 0, 1, 1)
         self.visual_drawing = QtWidgets.QPushButton(self.layoutWidget)
-        font = QtGui.QFont()
-        font.setFamily("微軟正黑體")
-        font.setPointSize(12)
-        self.visual_drawing.setFont(font)
+        self.visual_drawing.setStyleSheet("""
+            QPushBotton{
+                font-family:微軟正黑體;
+                font-size:12px;
+                background-color: #FFFFFF;
+                border: 2px aolid #4CAF50;
+                border-radius: 10px;
+                padding: 5px;}
+            QPushBotton:hover{
+                background-color: lightblue;}
+            QPushBotton:pressed{
+                background-color: darkblue;}
+        """)
         self.visual_drawing.setObjectName("visual_drawing")
         self.gridLayout.addWidget(self.visual_drawing, 3, 0, 1, 1)
         self.employee_turnover_forecast = QtWidgets.QPushButton(self.layoutWidget)
-        font = QtGui.QFont()
-        font.setFamily("微軟正黑體")
-        font.setPointSize(12)
-        self.employee_turnover_forecast.setFont(font)
+        self.employee_turnover_forecast.setStyleSheet("""
+            QPushBotton{
+                font-family:微軟正黑體;
+                font-size:12px;
+                background-color: #FFFFFF;
+                border: 2px aolid #4CAF50;
+                border-radius: 10px;
+                padding: 5px;}
+            QPushBotton:hover{
+                background-color: lightblue;}
+            QPushBotton:pressed{
+                background-color: darkblue;}
+        """)
         self.employee_turnover_forecast.setObjectName("employee_turnover_forecast")
         self.gridLayout.addWidget(self.employee_turnover_forecast, 2, 0, 1, 1)
         self.manage_employee_information = QtWidgets.QPushButton(self.layoutWidget)
-        font = QtGui.QFont()
-        font.setFamily("微軟正黑體")
-        font.setPointSize(12)
-        self.manage_employee_information.setFont(font)
+        self.manage_employee_information.setStyleSheet("""
+            QPushBotton{
+                font-family:微軟正黑體;
+                font-size:12px;
+                background-color: #FFFFFF;
+                border: 2px aolid #4CAF50;
+                border-radius: 10px;
+                padding: 5px;}
+            QPushBotton:hover{
+                background-color: lightblue;}
+            QPushBotton:pressed{
+                background-color: darkblue;}
+        """)
         self.manage_employee_information.setObjectName("manage_employee_information")
         self.gridLayout.addWidget(self.manage_employee_information, 1, 0, 1, 1)
         self.gridLayout_2.addLayout(self.gridLayout, 1, 1, 1, 1)
