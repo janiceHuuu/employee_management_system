@@ -151,20 +151,14 @@ class EmployeeTurnoverForecastWindow(QMainWindow, Ui_EmployeeTurnoverForecastWin
                 i += 1
                 print(i)
                 found = True
-                x = [query.value(3), query.value(20), query.value(24), query.value(28),
-                     query.value(29), query.value(35), query.value(37), query.value(38),
-                     query.value(40), query.value(44)]
-                df_x = pd.DataFrame({'sex': [x[0]], 
-                                     '訓練時數C': [x[1]], 
-                                     '升遷速度': [x[2]],
-                                     '近一年請假數B': [x[3]], 
-                                     '出差數A': [x[4]],
-                                     '年齡層級': [x[5]], 
-                                     '年資層級A': [x[6]], 
-                                     '年資層級B': [x[7]], 
-                                     '任職前工作平均年數': [x[8]],
-                                     '眷屬量': [x[9]]})
-                model_path = 'predictingModel/random_forest_model_v2.joblib'
+                x = [query.value(24), query.value(35), query.value(36), 
+                     query.value(37), query.value(38)]
+                df_x = pd.DataFrame({'升遷速度': [x[0]],
+                                     '年齡層級': [x[1]], 
+                                     '婚姻狀況': [x[2]],
+                                     '年資層級A': [x[3]], 
+                                     '年資層級B': [x[4]]})
+                model_path = 'predictingModel/xgb_model_v5.joblib'
                 model = joblib.load(model_path)
                 y_pre = model.predict(df_x)
                 
