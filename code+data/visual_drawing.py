@@ -163,6 +163,7 @@ class VisualDrawingWindow(QMainWindow, Ui_VisualDrawingWindow):
     def go_to_previous_page(self):
         from nextpage import NextPageWindow
         self.next_page = NextPageWindow()
+        self.next_page.setWindowIcon(QIcon('icon/al5nr-twq6f-001.ico'))
         self.next_page.show()
         self.close()
         
