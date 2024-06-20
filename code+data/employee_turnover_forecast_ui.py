@@ -28,6 +28,44 @@ class Ui_MainWindow(object):
         self.tabWidget = QtWidgets.QTabWidget(self.centralwidget)
         self.tabWidget.setGeometry(QtCore.QRect(10, 10, 830, 590))
         self.tabWidget.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
+        self.tabWidget.setStyleSheet('''
+            QTabWidget::pane {
+                border-top: 2px solid #FFFFFF;
+                border-left: 2px solid #FFFFFF;
+                border-right: 2px solid #FFFFFF;
+                border-bottom: 2px solid #FFFFFF;
+                position: absolute;
+                top: -0.5em;
+            }
+
+            QTabWidget::tab-bar {
+                alignment: center;
+            }
+
+            QTabBar::tab {
+                background: lightgray;
+                border: 1px solid #000000;
+                border-bottom-color: #FFFFFF;
+                border-top-left-radius: 4px;
+                border-top-right-radius: 4px;
+                min-width: 8ex;
+                padding: 5px;
+                font: bold 14px 'Microsoft JhengHei';
+            }
+
+            QTabBar::tab:selected, QTabBar::tab:hover {
+                background: #FFFFFF;
+            }
+
+            QTabBar::tab:selected {
+                color: #000093;
+                border-color: #000093;
+            }
+
+            QTabBar::tab:!selected {
+                margin-top: 2px;
+            }
+        ''')
         self.tabWidget.setObjectName("tabWidget")
         self.tab = QtWidgets.QWidget()
         self.tab.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
@@ -56,7 +94,7 @@ class Ui_MainWindow(object):
                 font-size:15px;
                 background-color: #FFFFFF;
                 border-style: outset;
-                border: 2px solid #4CAF50;
+                border: 2px solid #000093;
                 border-radius: 10px;
                 padding: 5px;}
             QPushButton:hover{

@@ -193,7 +193,7 @@ class EmployeeTurnoverForecastWindow(QMainWindow, Ui_EmployeeTurnoverForecastWin
                 title = '通知'
                 iconSet = 'info'
                 img_icon = None
-                button = 'YesNo'
+                button = None
                 r = self.messagebox(text, title, iconSet, img_icon, button)
                 if r == QMessageBox.Ok:
                     pass
@@ -241,6 +241,7 @@ class EmployeeTurnoverForecastWindow(QMainWindow, Ui_EmployeeTurnoverForecastWin
         self.closeDatabase()
         from nextpage import NextPageWindow
         self.next_page = NextPageWindow()
+        self.next_page.setWindowIcon(QIcon('icon/azvtu-m979f-001.ico'))
         self.next_page.show()
         self.close()
         
