@@ -81,6 +81,22 @@ class EmployeeTurnoverForecastWindow(QMainWindow, Ui_EmployeeTurnoverForecastWin
         message.setWindowIcon(QIcon(img_icon))
         result = message.exec_()
         return result
+    
+    # 匯出csv檔       
+    def csvExport(self, datapath):
+        query1 = "SELECT * FROM PredictionEmployee"
+        self.model.setQuery(query1, self.db)
+        self.fetch_all_data()
+        
+        with open(datapath, 'w', newline='', encoding='utf-8') as file:
+            writer = csv.writer(file)
+                
+            columnHeaders = [self.model.headerData(i, Qt.Horizontal) for i in range(self.model.columnCount())]
+            writer.writerow(columnHeaders)
+                
+            for row in range(self.model.rowCount()):
+                rowData = [self.model.data(self.model.index(row, col)) for col in range(self.model.columnCount())]
+                writer.writerow(rowData)
 
     # 全體離職預測
     def prediction(self):
@@ -92,9 +108,8 @@ class EmployeeTurnoverForecastWindow(QMainWindow, Ui_EmployeeTurnoverForecastWin
         #利用資料庫匯出之csv檔進行離職預測
         df = pd.read_csv(filepath)
         df.fillna(0, inplace = True)
-        X = df[['sex', '訓練時數C', '升遷速度', '近一年請假數B', '出差數A',  
-                  '年齡層級', '年資層級A', '年資層級B', '任職前工作平均年數', '眷屬量']]
-        model_path = 'predictingModel/random_forest_model_v2.joblib'
+        X = df[['升遷速度', '年齡層級', '婚姻狀況', '年資層級A', '年資層級B']]
+        model_path = 'predictingModel/xgb_model_v5.joblib'
         loaded_model = joblib.load(model_path)
         predictions = loaded_model.predict(X)
         print(predictions)
@@ -102,6 +117,15 @@ class EmployeeTurnoverForecastWindow(QMainWindow, Ui_EmployeeTurnoverForecastWin
         df['最新離職預測'] = predictions
         df.to_csv('file/v2.csv', index = False)
 
+        perNo_query = QSqlQuery(self.db)
+        perNo_query.prepare("SELECT PerNo FROM PredictionEmployee")
+        if not perNo_query.exec_():
+            print(f"Failed to retrieve PerNo: {perNo_query.lastError().text()}")
+            return
+        
+        perNos = []
+        while perNo_query.next():
+            perNos.append(perNo_query.value(0))
 
         #更新資料庫資料
         if not self.db.transaction():
@@ -109,10 +133,16 @@ class EmployeeTurnoverForecastWindow(QMainWindow, Ui_EmployeeTurnoverForecastWin
             return
 
         query2 = QSqlQuery(self.db)
-        query2.prepare("UPDATE PredictionEmployee SET 最新離職預測 = :PerStatus WHERE rowid = :rowid")
-        for i, prediction in enumerate(predictions):            
+        # query2.prepare("UPDATE PredictionEmployee SET 最新離職預測 = :PerStatus WHERE rowid = :rowid")
+        if not query2.prepare("UPDATE PredictionEmployee SET 最新離職預測 = :PerStatus WHERE PerNo = :PerNo"):
+            print(f"Failed to prepare query: {query2.lastError().text()}")
+            self.db.rollback()
+            return
+        
+        for i, prediction in enumerate(predictions):
+            perno = perNos[i]          
             query2.bindValue(":PerStatus", int(prediction))
-            query2.bindValue(":rowid", i + 1)
+            query2.bindValue(":PerNo", perno)
             if not query2.exec_():
                 print(f"Failed to update row {i + 1}: {query2.lastError().text()}")
                 self.db.rollback()
@@ -206,22 +236,6 @@ class EmployeeTurnoverForecastWindow(QMainWindow, Ui_EmployeeTurnoverForecastWin
         folderPath = QFileDialog.getExistingDirectory(directory = 'file')
         data_path = os.path.join(folderPath, 'Prediction.csv')
         self.csvExport(data_path)
-        
-    # 匯出csv檔       
-    def csvExport(self, datapath):
-        query1 = "SELECT * FROM PredictionEmployee"
-        self.model.setQuery(query1, self.db)
-        self.fetch_all_data()
-        
-        with open(datapath, 'w', newline='', encoding='utf-8') as file:
-            writer = csv.writer(file)
-                
-            columnHeaders = [self.model.headerData(i, Qt.Horizontal) for i in range(self.model.columnCount())]
-            writer.writerow(columnHeaders)
-                
-            for row in range(self.model.rowCount()):
-                rowData = [self.model.data(self.model.index(row, col)) for col in range(self.model.columnCount())]
-                writer.writerow(rowData)
 
     #關閉資料庫連接
     def closeDatabase(self):
